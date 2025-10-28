@@ -4,55 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nhà sách ABC</title>
-    <link rel="stylesheet" href="dang nhap.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <style>
+    .d5{
+        float: right;
+    }
     header{
         width: auto;
         height: auto;
-        border: 1px solid red;
+        border: 1px ;
         padding: 10px;
         margin: 5px;
+        background-color: rgb(0, 207, 254);
     }
     nav{
         width: auto;
         height: auto;
-        border: 1px solid red;
-        padding: 10px;
+        border: 1px ;
+        padding: 20px;
         margin: 5px;
+        background-color: rgb(0, 179, 255);
     }
     .d1{
         width: auto;
         height: auto;
-        border: 1px solid red;
+        border: 1px ;
+        padding: 10px;
+        float: center;
+        margin: 10px;
+        border-radius: 10px;
+        background-color: rgb(255, 174, 0);
+    }
+    article aside.d4{    
+        width: auto;
+        height: auto;
+        border: 1px ;
         padding: 10px;
         margin: 5px;
+        float: right;
+        background-color: rgb(255, 196, 0);
     }
     article aside{
         width: auto;
         height: auto;
-        border: 1px solid red;
+        border: 1px ;
         padding: 10px;
         margin: 5px;
+        float: left;
+        background-color: rgb(255, 204, 0);
     }
     article section{
-        width: auto;
-        height: auto;
-        border: 1px solid red;
+        width: 800px;
+        height: 700px;
+        border: 1px ;
         padding: 10px;
         margin: 5px;
-    }
-    .d3,.d2,.d4{
         float: left;
+        background-color: rgb(255, 247, 0);
     }
 </style>
 <body>
     <header style="text-align: center;">
-    <div>
-        <img src="bookstorte.jpg"><br>
+    <div class="top-left">
+        <img src="bookstorte.jpg" width="300" height="300"><br>
          <h2 style="color: green;">WELCOME TO SÁCH ABC</h2>
     </div>
-    <div>
+    <div class="top-right">
         <img src="istockphoto-1200064755-612x612.jpg" height="20" width="20">
         <a href="http://127.0.0.1:5500/bai%20kt/Dangnhap.html">Đăng nhập</a> |
         <a href="http://127.0.0.1:5500/bai%20kt/Dangky.html">Đăng ký</a> |
@@ -60,29 +78,27 @@
     </div>
     </header>
     <nav>
-        <ul >
-        <li><a href="Trangchu.html">TRANG CHỦ</a></li>
-        <li><a href="Gioithieu.html">GIỚI THIỆU</a></li>
-        <li><a href="#">LIÊN HỆ</a></li>
-    </ul>
-    <div>
+        <a href="Trangchu.html">TRANG CHỦ|</a>
+        <a href="Gioithieu.html">GIỚI THIỆU|</a>
+        <a href="#">LIÊN HỆ</a>
+    <div class="d5">
         <input type="text" size="36" name="tsearch" placeholder="Hãy nhập tên sách cần tìm..."><input type="submit" value="Tìm sách" title="Tìm sách">
     </div>
     </nav>
     <div class="d1">
         <table>
         <tr>
-            <td><img src="vu trong phung.jpg" width="180" height="250"></td>
-            <td><img src="đông từ bất quy tắc.jpg" width="180" height="250"></td>
-            <td><img src="viet-quoc-cong-ly-thuong-kiet.jpg" width="180" height="250"></td>
-            <td><img src="van-1.jpg" width="180" height="250"></td>
-            <td><img src="ông già và biển cả.jpg" width="180" height="250"></td>
+            <td><img src="vu trong phung.jpg" width="200" height="250"></td>
+            <td><img src="đông từ bất quy tắc.jpg" width="300" height="250"></td>
+            <td><img src="viet-quoc-cong-ly-thuong-kiet.jpg" width="350" height="250"></td>
+            <td><img src="van-1.jpg" width="250" height="250"></td>
+            <td><img src="ông già và biển cả.jpg" width="300" height="250"></td>
         </tr>
     </table>
     </div>
     <div><!--Quy định phần thân của trang-->
     <article>
-        <aside class="d2" >
+        <aside>
     <h1><p><b>Sách theo chủ đề</b></p></h1>
         <ul aria-busy="type="square">
            <li><a href="http://127.0.0.1:5500/nha%20sach.html">Ngoại ngữ</a></li>
@@ -100,7 +116,7 @@
         </ul>
         
         </aside>
-        <section class="d3">
+        <section>
             <div align="center"><h1><span style="color:rgb(4, 0, 255)"><b>SÁCH ĐẮC NHÂN TÂM</b></span></h1>
                 <img src="-1726817123.jpg" alt=""width="300" height="500">
                 <p>Đơn giá <font size="5" color="red">100,00 VND</font></p>

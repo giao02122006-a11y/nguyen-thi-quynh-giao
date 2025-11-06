@@ -1,7 +1,7 @@
 .slider {
   position: relative;
-  width: 1000px;  /* 👈 chỉnh khung rộng ra cho vừa 5-6 ảnh */
-  height: 200px;
+  width: 1100px;  /* 👈 chỉnh khung rộng ra cho vừa 5-6 ảnh */
+  height: 400;
   margin: 50px auto;
   overflow: hidden;
   border-radius: 10px;

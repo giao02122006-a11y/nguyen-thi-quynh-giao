@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang sức cưới</title>
+
+  <style>
+    /* ===== CSS CHUNG ===== */
+    nav div.menu {
+      display: flex;
+      justify-self: center;
+      text-align: center;
+      position: relative;
+    }
+
+    nav div.tìmkiếm {
+      float: right;
+      border-radius: 5px;
+    }
+
+    nav div.quảngcáo {
+      text-align: center;
+    }
+
+    nav div.quảngcáo img {
+      border-radius: 10px;
+    }
+
+    nav div.tìmkiếm input {
+      width: 250px;
+      height: 35px;
+      padding: 4px 6px;
+      font-size: 14px;
+      border-radius: 25px;
+      border: 1px solid #aaa;
+      outline: none;
+    }
+
+    nav div.tìmkiếm input:focus {
+      border-color: #0078ff;
+      box-shadow: 0 0 5px #0078ff;
+    }
+
+    nav div.menu ul.cham li {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 0;
+      justify-content: center;
+      gap: 80px;
+      display: flex;
+    }
+
+    .cham li a {
+      text-decoration: none;
+      color: black;
+      font-weight: 400;
+      font-family: Arial, sans-serif;
+      transition: color 0.3s;
+      font-size: 20px;
+    }
+
+    .cham li a:hover {
+      color: blue;
+    }
+
+    /* ===== SLIDER CSS ===== */
+    .slider {
+      position: relative;
+      width: 1100px;
+      margin: 50px auto;
+      overflow: visible;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .slider-wrapper {
+      overflow: hidden;
+    }
+
+    .slider-inner {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .sanpham {
+      width: 200px;
+      margin: 10px;
+      border: 2px solid #000;
+      border-radius: 15px;
+      text-align: center;
+      padding: 10px;
+      flex-shrink: 0;
+      background-color: #fff;
+    }
+
+    .sanpham img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .sanpham:hover {
+      transform: scale(1.05);
+      transition: 0.3s;
+    }
+
+    .ten {
+      font-size: 20px;
+      font-weight: bold;
+      color: black;
+    }
+
+    .gia {
+      font-size: 16px;
+      color: blue;
+      font-weight: bold;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      color: #fff;
+      border: none;
+      font-size: 24px;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 11;
+      transition: background 0.3s, opacity 0.3s;
+    }
+
+    .prev { left: -40px; }
+    .next { right: -40px; }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div>
+      <p><img src="phone.png" alt="" width="20" height="20">02899954223 | 
+      <img src="location-pin.png" alt="" width="20" height="20">Cửa hàng</p>
+    </div>
+    <div style="text-align: center;">
+      <img src="logo trang sức.svg" alt="" width="300" height="300">
+    </div>
+  </header>
+
+  <nav>
+    <div class="tìmkiếm">
+      <input type="text" placeholder="Search...">
+      <img src="user.png" alt="" width="20" height="20">
+      <img src="shopping.png" alt="" width="20" height="20">
+    </div>
+
+    <div class="menu">
+      <ul class="cham">
+        <li>
+          <a href="Trang chủ.html">TRANG CHỦ</a>
+          <a href="#">TRANG SẢN PHẨM</a>
+          <a href="#">GIỚI THIỆU</a>
+          <a href="#">LIÊN HỆ</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="quảngcáo">
+      <img src="Artboard 1.png" alt="" width="1100" height="600">
+    </div>
+  </nav>
+
+  <article style="text-align:center;">
+    <h3>TRANG SỨC CƯỚI</h3>
+
+    <div class="slider">
+      <button class="prev">&#10094;</button>
+      <div class="slider-wrapper">
+        <div class="slider-inner">
+
+          <!-- Danh sách sản phẩm -->
+          <div class="sanpham">
+            <img src="image.png" alt="Sản phẩm 1">
+            <div class="ten">Nhẫn cưới</div>
+            <div class="gia">1,320,000 đ</div>
+          </div>
+          <div class="sanpham">
+            <img src="image.png" alt="Sản phẩm 2">
+            <div class="ten">Nhẫn vàng</div>
+            <div class="gia">1,500,000 đ</div>
+          </div>
+          <div class="sanpham">
+            <img src="image.png" alt="Sản phẩm 3">
+            <div class="ten">Nhẫn kim cương</div>
+            <div class="gia">2,000,000 đ</div>
+          </div>
+          <div class="sanpham">
+            <img src="image.png" alt="Sản phẩm 4">
+            <div class="ten">Nhẫn đôi</div>
+            <div class="gia">1,200,000 đ</div>
+          </div>
+          <div class="sanpham">
+            <img src="image.png" alt="Sản phẩm 5">
+            <div class="ten">Nhẫn vàng hồng</div>
+            <div class="gia">1,800,000 đ</div>
+          </div>
+          <div class="sanpham">
+            <img src="image.png" alt="Sản phẩm 6">
+            <div class="ten">Nhẫn bạc</div>
+            <div class="gia">1,000,000 đ</div>
+          </div>
+
+        </div>
+      </div>
+      <button class="next">&#10095;</button>
+    </div>
+  </article>
+
+  <script>
+    // ===== JAVASCRIPT SLIDER =====
+    const sliderInner = document.querySelector('.slider-inner');
+    const products = document.querySelectorAll('.sanpham');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+
+    let index = 0;
+    const visibleCount = 5; // số sản phẩm hiển thị cùng lúc
+    const productWidth = 220; // bao gồm margin
+
+    function updateSlider() {
+      const offset = -index * productWidth;
+      sliderInner.style.transform = `translateX(${offset}px)`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      index++;
+      if (index > products.length - visibleCount) {
+        index = 0; // quay lại đầu
+      }
+      updateSlider();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      index--;
+      if (index < 0) {
+        index = products.length - visibleCount; // quay lại cuối
+      }
+      updateSlider();
+    });
+
+    // Auto slide mỗi 3 giây
+    setInterval(() => {
+      nextBtn.click();
+    }, 3000);
+  </script>
+</body>
+</html>
+

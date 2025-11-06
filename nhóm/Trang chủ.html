@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="slie.css">
+</head>
+<style>
+    
+    nav div.menu{
+        display: flex;
+        justify-self: center;
+        text-align: center;
+        position: relative;
+    }
+    nav div.tìmkiếm {
+        float: right;
+        border-radius: 5px;
+    }
+    nav div.quảngcáo{
+        text-align: center;
+    }
+    nav div.quảngcáo img{
+        border-radius: 10px;
+    }
+    nav div.tìmkiếm input{
+        width: 250px;
+        height: 35px;
+        padding: 4px 6px;
+        font-size: 14px;
+        border-radius: 25px;
+        border: 1px solid #aaa;
+        outline: none; /* bỏ viền xanh khi bấm */
+    }
+    nav div.tìmkiếm input:focus{
+        border-color: #0078ff;
+        box-shadow: 0 0 5px #0078ff;
+    }
+   nav div.menu ul.cham li {
+        list-style-type: none; /* bỏ chấm tròn */
+        padding-left: 0;       /* bỏ khoảng thụt vào bên trái (tùy trình duyệt) */
+        margin: 0;              /* tùy chọn: bỏ luôn khoảng cách trên dưới */
+        justify-content: center;     /* căn giữa toàn bộ menu */
+        gap: 80px;                   /* khoảng cách giữa các mục (chỉnh tùy ý) */
+        display: flex;               /* xếp các mục theo hàng ngang */
+    }
+    .cham li a{
+        text-decoration: none;       /* bỏ gạch chân */
+        color: black;                /* màu chữ */
+        font-weight: 400;            /* chữ đậm */
+        font-family: Arial, sans-serif;
+        transition: color 0.3s;
+        font-size: 20px;
+    }
+    .cham li a:hover{
+        color: blue;  
+    }
+   
+
+</style>
+<body>
+    <header>
+        <div>
+            <p><img src="phone.png" alt="" width="20" height="20">02899954223|<img src="location-pin.png" alt="" width="20" height="20">Cửa hàng</p>
+        </div>
+        <div style="text-align: center;">
+            <img src="logo trang sức.svg" alt="" width="300" height="300">
+        </div>
+    </header>
+    <nav>
+        <div class="tìmkiếm">
+            <input type="text" size="36" name="tsearch" placeholder="Search...">
+            <img src="user.png" alt="" width="20" height="20">
+            <img src="shopping.png" alt="" width="20" height="20">
+        </div>
+        <div class="menu">
+                <ul class="cham">
+                    <li>
+                        <a href="Trang chủ.html">TRANG CHỦ</a>
+                        <a href="">TRANG SẢN PHẨM</a>
+                        <a href="">GIỚI THIỆU</a>
+                        <a href="">LIÊN HỆ</a>
+                    </li> 
+                </ul>
+        </div>
+        <div class="quảngcáo">
+            <img src="Artboard 1.png" alt="" width="1100" height="600">
+        </div>
+    </nav>
+    <article style="text-align: center;">
+        <h3>TRANG SỨC CƯỚI</h3>
+        <div class="slider">
+  <button class="prev">&#10094;</button> <!-- nút trái -->
+  <div class="slider-wrapper">
+    <div class="slider-inner">
+      <div class="slide"><img src="image.png" alt="Sản phẩm 1" ></div>
+      <div class="slide"><img src="image.png" alt="Sản phẩm 3" ></div>
+    </div>
+  </div>
+  <button class="next">&#10095;</button> <!-- nút phải -->
+</div>
+    </article>
+</body>
+</html>

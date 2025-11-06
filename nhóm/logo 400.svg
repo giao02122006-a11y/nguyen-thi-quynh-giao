@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570.14 240.49">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 36.18px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #231f20;
+        font-family: DFVN-CALATHEA-Regular, 'DFVN CALATHEA';
+      }
+
+      .cls-3 {
+        letter-spacing: -.05em;
+      }
+
+      .cls-4 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-6 {
+        letter-spacing: -.05em;
+      }
+
+      .cls-7 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-2 {
+        font-size: 217.05px;
+      }
+
+      .cls-8 {
+        letter-spacing: -.04em;
+      }
+    </style>
+  </defs>
+  <text class="cls-2" transform="translate(11.84 175.27) scale(.8 1)"><tspan x="0" y="0">JeWel</tspan><tspan class="cls-7" x="487.28" y="0">R</tspan><tspan x="582.56" y="0">Y</tspan></text>
+  <text class="cls-1" transform="translate(0 233.8) scale(.8 1)"><tspan class="cls-3" x="0" y="0">Y</tspan><tspan class="cls-5" x="15.7" y="0">our jewel</tspan><tspan class="cls-4" x="163.29" y="0">r</tspan><tspan x="179.17" y="0">y will tell the </tspan><tspan class="cls-8" x="408.92" y="0">w</tspan><tspan x="435.76" y="0">orld who </tspan><tspan class="cls-6" x="597.54" y="0">y</tspan><tspan x="613.24" y="0">ou are</tspan></text>
+</svg>

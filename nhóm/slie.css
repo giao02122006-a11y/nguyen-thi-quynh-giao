@@ -1,0 +1,57 @@
+.slider {
+  position: relative;
+  width: 1000px;  /* 👈 chỉnh khung rộng ra cho vừa 5-6 ảnh */
+  height: 200px;
+  margin: 50px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.slider-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 200px;  /* 👈 mỗi ảnh rộng 200px */
+  flex: 0 0 200px; /* 👈 rất quan trọng để không bị co */
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+button.prev:hover,
+button.next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}

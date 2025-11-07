@@ -1,25 +1,366 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trang Sức Cao Cấp</title>
+<style>
+/* --- HEADER --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  position: relative;
+}
+header div.header-right input:focus {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-color: grey;
+}
+header div.header-right input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.header-left img, .header-right img {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.search-box {
+  position: relative;
+  display: inline-block;
+}
+.search-box input {
+  padding: 8px 35px 8px 10px;
+  font-size: 14px;
+}
+.search-box img {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* --- NAV --- */
+nav {
+  padding: 10px 0;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  border-bottom: 2px solid #ccc;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 20px;
+}
+nav ul li a:hover {
+  color: #007bff;
+}
+
+/* --- QUẢNG CÁO --- */
+.quangcao {
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+/* --- SLIDE CƠ BẢN --- */
+.slie {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+.slie-wrapper {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.slie .trai, .slie .phai {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.slie .trai { left: 10px; }
+.slie .phai { right: 10px; }
+
+.sanpham {
+  min-width: 220px;
+  margin: 0 10px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.sanpham img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.sanpham img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+.sanpham .ten {
+  font-weight: bold;
+  margin-top: 10px;
+}
+.sanpham .gia {
+  color: #ff0000;
+  margin-top: 5px;
+}
+.sanpham .mua-ngay {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: none;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.sanpham .mua-ngay:hover {
+  background: #0056b3;
+}
+
+/* --- TIÊU ĐỀ HÀNG --- */
+.tenTS {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 60px 0 20px 0;
+}
+
+/* --- KHOẢNG CÁCH GIỮA 3 HÀNG --- */
+.section {
+  margin-bottom: 200px;
+}
+
+/* --- GIỎ HÀNG --- */
+#giohang-popup {
+  display:none;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.3);
+  z-index:1000;
+}
+#giohang-popup ul {
+  list-style:none;
+  padding:0;
+}
+#giohang-popup button {
+  margin-top:10px;
+  padding:5px 10px;
+  cursor:pointer;
+  border:none;
+  border-radius:5px;
+}
+#giohang-count {
+  position:absolute;
+  top:-5px;
+  right:-5px;
+  background:red;
+  color:white;
+  border-radius:50%;
+  padding:2px 6px;
+  font-size:12px;
+}
+</style>
 </head>
 <body>
-   <header>
-    <div><p>02899954223|
-        <img src="" alt="Store location pin icon indicating physical store presence">Cửa hàng</p>
+
+<header>
+  <div class="header-left">
+    <p>
+      <img src="phone.png" alt="" width="20" height="20">02899954223 |
+      <img src="location-pin.png" alt="" width="20" height="20">Cửa hàng
+    </p>
+  </div>
+  <div style="text-align: center;">
+    <img src="logo 200.svg" alt="" width="400" height="100">
+  </div>
+  <div class="header-right">
+    <div class="search-box">
+      <input type="text" placeholder="Search...">
+      <img src="search.png" alt="">
     </div>
-    <div><img src="logo 200.svg" alt="" ></div>       
-    <div>
-        <input type="text" placeholder="Tìm kiếm sản phẩm, danh mục hay thương hiệu mong muốn ...">
-        <button type="submit">Tìm kiếm</button>
+    <a href="Đăng nhập.html"><img src="user.png" alt="" width="20" height="20"></a>
+    <div style="position:relative; display:inline-block;">
+      <img src="shopping-bag .png" alt="" width="30" height="30" id="giohang-icon" style="cursor:pointer;">
+      <span id="giohang-count">0</span>
     </div>
-    <div>
-        <button type="button">Đăng ký</button>
-        <button type="button">Đăng nhập</button>
-        <img src="user.png" alt="Shopping cart icon representing user's shopping cart">
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#">Trang chủ</a></li>
+    <li><a href="#">Giới thiệu</a></li>
+    <li><a href="#">Sản phẩm</a></li>
+    <li><a href="#">Liên hệ</a></li>
+  </ul>
+</nav>
+
+<div class="quangcao">
+  <img src="Artboard 1.png" alt="" width="1000" height="500">
+</div>
+
+<!-- HÀNG 1: TRANG SỨC VÀNG -->
+<section class="section">
+  <div class="tenTS">Trang sức vàng</div>
+  <div class="slie slie-vang">
+    <button class="trai trai-vang">&#10094;</button>
+    <div class="slie-wrapper slie-wrapper-vang">
+      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn vàng 18k</div><div class="gia">3,200,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Bông tai vàng</div><div class="gia">2,500,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Dây chuyền vàng</div><div class="gia">4,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Lắc tay vàng</div><div class="gia">3,800,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn vàng 24k</div><div class="gia">5,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
     </div>
-   </header> 
+    <button class="phai phai-vang">&#10095;</button>
+  </div>
+</section>
+
+<!-- HÀNG 2: TRANG SỨC BẠC -->
+<section class="section">
+  <div class="tenTS">Trang sức bạc</div>
+  <div class="slie slie-bac">
+    <button class="trai trai-bac">&#10094;</button>
+    <div class="slie-wrapper slie-wrapper-bac">
+      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn bạc</div><div class="gia">1,200,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Bông tai bạc</div><div class="gia">950,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Dây chuyền bạc</div><div class="gia">1,800,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Lắc tay bạc</div><div class="gia">1,650,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn bạc đặc biệt</div><div class="gia">2,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    </div>
+    <button class="phai phai-bac">&#10095;</button>
+  </div>
+</section>
+
+<!-- HÀNG 3: TRANG SỨC KIM CƯƠNG -->
+<section class="section">
+  <div class="tenTS">Trang sức kim cương</div>
+  <div class="slie slie-kc">
+    <button class="trai trai-kc">&#10094;</button>
+    <div class="slie-wrapper slie-wrapper-kc">
+      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn kim cương</div><div class="gia">12,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Bông tai kim cương</div><div class="gia">15,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Dây chuyền kim cương</div><div class="gia">20,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Lắc tay kim cương</div><div class="gia">18,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn kim cương VIP</div><div class="gia">25,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    </div>
+    <button class="phai phai-kc">&#10095;</button>
+  </div>
+</section>
+
+<!-- Giỏ hàng popup -->
+<div id="giohang-popup">
+  <h2>Giỏ hàng</h2>
+  <ul id="giohang-items"></ul>
+  <button id="dat-hang">Đặt hàng</button>
+  <button id="dong-giohang">Đóng</button>
+</div>
+
+<script>
+// --- Slide function ---
+function initSlide(wrapperSelector, leftBtnSelector, rightBtnSelector, visibleProducts = 4) {
+  const wrapper = document.querySelector(wrapperSelector);
+  const btnLeft = document.querySelector(leftBtnSelector);
+  const btnRight = document.querySelector(rightBtnSelector);
+  const slides = wrapper.querySelectorAll('.sanpham');
+  const slideWidth = slides[0].offsetWidth + 20;
+  let currentSlide = 0;
+
+  btnRight.addEventListener('click', () => {
+    if (currentSlide < slides.length - visibleProducts) {
+      currentSlide++;
+      wrapper.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+    }
+  });
+
+  btnLeft.addEventListener('click', () => {
+    if (currentSlide > 0) {
+      currentSlide--;
+      wrapper.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+    }
+  });
+}
+initSlide('.slie-wrapper-vang', '.trai-vang', '.phai-vang');
+initSlide('.slie-wrapper-bac', '.trai-bac', '.phai-bac');
+initSlide('.slie-wrapper-kc', '.trai-kc', '.phai-kc');
+
+// --- Giỏ hàng ---
+const cart = [];
+const cartCount = document.getElementById('giohang-count');
+const cartIcon = document.getElementById('giohang-icon');
+const cartPopup = document.getElementById('giohang-popup');
+const cartItems = document.getElementById('giohang-items');
+const datHangBtn = document.getElementById('dat-hang');
+const dongBtn = document.getElementById('dong-giohang');
+
+// Thêm sản phẩm vào giỏ
+document.querySelectorAll('.mua-ngay').forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    const sp = e.target.closest('.sanpham');
+    const ten = sp.querySelector('.ten').innerText;
+    const gia = sp.querySelector('.gia').innerText;
+    cart.push({ten, gia});
+    cartCount.innerText = cart.length;
+    alert(`${ten} đã được thêm vào giỏ hàng!`);
+  });
+});
+
+// Hiển thị giỏ hàng khi click icon
+cartIcon.addEventListener('click', () => {
+  cartItems.innerHTML = '';
+  cart.forEach((item, index) => {
+    const li = document.createElement('li');
+    li.innerText = `${item.ten} - ${item.gia}`;
+    cartItems.appendChild(li);
+  });
+  cartPopup.style.display = 'block';
+});
+
+// Đặt hàng
+datHangBtn.addEventListener('click', () => {
+  alert('Đặt hàng thành công!');
+  cart.length = 0;
+  cartCount.innerText = 0;
+  cartPopup.style.display = 'none';
+});
+
+// Đóng giỏ hàng
+dongBtn.addEventListener('click', () => {
+  cartPopup.style.display = 'none';
+});
+</script>
+
 </body>
 </html>

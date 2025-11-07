@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giỏ Hàng</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+}
+
+/* --- HEADER --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  position: relative;
+}
+header div.header-right input:focus {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-color: grey;
+}
+header div.header-right input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.header-left img, .header-right img {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.search-box {
+  position: relative;
+  display: inline-block;
+}
+.search-box input {
+  padding: 8px 35px 8px 10px;
+  font-size: 14px;
+}
+.search-box img {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* --- NAV --- */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  border-bottom: 2px solid #ccc;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 18px;
+}
+nav ul li a:hover {
+  color: #007bff;
+}
+
+/* --- TAB GIỎ HÀNG --- */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+.tab-btn {
+  padding: 10px 20px;
+  border: none;
+  background: #ccc;
+  color: #000;
+  cursor: pointer;
+  margin: 0 5px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.tab-btn.active {
+  background: #999;
+  color: #fff;
+}
+
+/* --- TAB CONTENT --- */
+.tab-content {
+  display: none;
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.tab-content.active {
+  display: flex;
+}
+
+/* --- CARD SẢN PHẨM --- */
+.sanpham {
+  width: 220px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+.sanpham img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.sanpham img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+.sanpham .ten {
+  font-weight: bold;
+  margin-top: 10px;
+}
+.sanpham .gia {
+  color: #ff0000;
+  margin-top: 5px;
+}
+.cart-actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+.cart-actions input {
+  width: 50px;
+  padding: 5px;
+}
+.cart-actions button {
+  padding: 5px 10px;
+  background: #ff0000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.total {
+  width: 100%;
+  text-align: right;
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+.move-btn {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <p>
+      <img src="phone.png" alt="" width="20" height="20">02899954223 |
+      <img src="location-pin.png" alt="" width="20" height="20">Cửa hàng
+    </p>
+  </div>
+  <div style="text-align: center;">
+    <img src="logo 200.svg" alt="" width="400" height="100">
+  </div>
+  <div class="header-right">
+    <div class="search-box">
+      <input type="text" placeholder="Search...">
+      <img src="search.png" alt="">
+    </div>
+    <a href="Đăng nhập.html"><img src="user.png" alt="" width="20" height="20"></a>
+    <img src="shopping-bag.png" alt="" width="30" height="30">
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#">Trang chủ</a></li>
+    <li><a href="#">Giới thiệu</a></li>
+    <li><a href="#">Sản phẩm</a></li>
+    <li><a href="#">Liên hệ</a></li>
+  </ul>
+</nav>
+
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab-btn active" data-tab="ordered">Đặt hàng</button>
+  <button class="tab-btn" data-tab="shipping">Đang giao</button>
+  <button class="tab-btn" data-tab="delivered">Đã giao</button>
+</div>
+
+<!-- Tab Contents -->
+<div class="tab-content active" id="ordered">
+  <div class="sanpham">
+    <img src="Bông tai bạc 10k.jpg" alt="">
+    <div class="ten">Nhẫn vàng 18k</div>
+    <div class="gia">3,200,000 đ</div>
+    <div class="cart-actions">
+      <input type="number" value="1" min="1">
+      <button class="remove-btn">Xóa</button>
+    </div>
+    <button class="move-btn" data-target="shipping">Chuyển sang Đang giao</button>
+  </div>
+  <div class="sanpham">
+    <img src="Bông tai bạc 10k.jpg" alt="">
+    <div class="ten">Bông tai vàng</div>
+    <div class="gia">2,500,000 đ</div>
+    <div class="cart-actions">
+      <input type="number" value="1" min="1">
+      <button class="remove-btn">Xóa</button>
+    </div>
+    <button class="move-btn" data-target="shipping">Chuyển sang Đang giao</button>
+  </div> 
+<div class="tab-content" id="delivered">
+  <div class="total">Tổng: <span id="total-delivered">0</span> đ</div>
+</div>
+
+<script>
+// Chuyển tab
+const tabButtons = document.querySelectorAll('.tab-btn');
+tabButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  });
+});
+
+// Xóa sản phẩm
+function updateTotal(tabId) {
+  const tab = document.getElementById(tabId);
+  let total = 0;
+  tab.querySelectorAll('.sanpham').forEach(card => {
+    const price = parseInt(card.querySelector('.gia').textContent.replace(/[^0-9]/g,''));
+    const qty = parseInt(card.querySelector('input').value);
+    total += price * qty;
+  });
+  tab.querySelector('.total span').textContent = total.toLocaleString();
+}
+
+document.querySelectorAll('.remove-btn').forEach(btn => {
+  btn.addEventListener('click', e => {
+    const card = e.target.closest('.sanpham');
+    const tabId = card.closest('.tab-content').id;
+    card.remove();
+    updateTotal(tabId);
+  });
+});
+
+// Chuyển sản phẩm giữa các tab
+document.querySelectorAll('.move-btn').forEach(btn => {
+  btn.addEventListener('click', e => {
+    const card = e.target.closest('.sanpham');
+    const currentTabId = card.closest('.tab-content').id;
+    const targetTab = document.getElementById(btn.dataset.target);
+    targetTab.insertBefore(card, targetTab.querySelector('.total'));
+    updateTotal(currentTabId);
+    updateTotal(btn.dataset.target);
+  });
+});
+
+// Cập nhật tổng tiền ban đầu
+['ordered','shipping','delivered'].forEach(id => updateTotal(id));
+</script>
+</body>
+</html>
+

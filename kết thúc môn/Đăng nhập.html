@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng nhập</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{height:100vh;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg,#13293d,#006494,#247ba0,#1b98e0,#0f1f3d);position:relative;overflow:hidden;color:#e8f1f2;}
+.star{position:absolute;width:2px;height:2px;background:white;border-radius:50%;opacity:0.8;animation:shooting 10s linear infinite;}
+@keyframes shooting{0%{transform:translateY(-100vh) translateX(0) rotate(0deg);opacity:0;}10%{opacity:1;}50%{transform:translateY(100vh) translateX(50vw) rotate(360deg);opacity:1;}100%{opacity:0;}}
+.login-container{background:rgba(255,255,255,0.05);padding:50px 40px;border-radius:25px;text-align:center;position:relative;z-index:10;width:380px;box-shadow:0 15px 35px rgba(0,0,0,0.7);backdrop-filter:blur(10px);}
+.login-container img{width:150px;margin-bottom:20px;filter:drop-shadow(0 0 20px #e8f1f2);}
+.login-container h2{margin-bottom:30px;font-size:28px;color:#e8f1f2;text-shadow:0 0 10px #006494;}
+.login-container input[type="text"],.login-container input[type="password"]{width:100%;padding:15px 20px;margin:12px 0;border:1px solid #1b98e0;border-radius:12px;outline:none;font-size:16px;background:rgba(255,255,255,0.1);color:#e8f1f2;transition:0.3s;}
+.login-container input::placeholder{color:#e8f1f2;opacity:0.8;}
+.login-container input:focus{border-color:#e8f1f2;box-shadow:0 0 10px rgba(232,241,242,0.6);background:rgba(255,255,255,0.15);}
+.login-container button{width:100%;padding:15px;margin-top:20px;border:none;border-radius:12px;background-color:#1b98e0;color:#fff;font-size:18px;cursor:pointer;transition:0.3s;}
+.login-container button:hover{background-color:#247ba0;}
+.login-container a{display:block;margin-top:15px;color:#e8f1f2;text-decoration:none;transition:0.3s;}
+.login-container a:hover{text-decoration:underline;color:#1b98e0;}
+</style>
+</head>
+<body>
+<div class="star" style="top:10%; left:20%; animation-delay:0s;"></div>
+<div class="star" style="top:30%; left:40%; animation-delay:3s;"></div>
+<div class="star" style="top:50%; left:60%; animation-delay:6s;"></div>
+<div class="star" style="top:70%; left:80%; animation-delay:9s;"></div>
+<div class="star" style="top:20%; left:70%; animation-delay:12s;"></div>
+
+<div class="login-container">
+<img src="logo 200.svg" alt="Logo">
+<h2>Đăng nhập</h2>
+<form id="loginForm">
+  <input type="text" placeholder="Tên đăng nhập" required>
+  <input type="password" placeholder="Mật khẩu" required>
+  <button type="submit">Đăng nhập</button>
+</form>
+<a href="Quên mật khẩu.html">Quên mật khẩu?</a>
+<a href="Đăng ký.html">Đăng ký tài khoản mới</a>
+</div>
+
+<script>
+// Chuyển hướng về trang chủ sau khi submit form
+document.getElementById('loginForm').addEventListener('submit', function(e){
+    e.preventDefault(); // Ngăn reload trang
+    alert('Đăng nhập thành công!');
+    window.location.href = "Trang chủ.html"; // <--- đổi thành trang chủ thực tế
+});
+</script>
+</body>
+</html>
+

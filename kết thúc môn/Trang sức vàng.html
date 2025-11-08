@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* --- HEADER --- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      position: relative;
+    }
+    header div.header-right input:focus {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-color: grey;
+    }
+    header div.header-right input {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      transition: box-shadow 0.3s, border-color 0.3s;
+    }
+    .header-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .header-left img, .header-right img {
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+    .search-box {
+      position: relative;
+      display: inline-block;
+    }
+    .search-box input {
+      padding: 8px 35px 8px 10px;
+      font-size: 14px;
+    }
+    .search-box img {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    /* --- NAV --- */
+    nav {
+      box-shadow: 0 6px 6px -4px rgba(0, 0, 0, 0.4);
+      margin-top: 10px;
+      position: relative;
+      z-index: 999;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 100px;
+      border-bottom: 2px solid #ccc;
+      font-family: Dosis, sans-serif;
+    }
+    nav ul li {
+      position: relative;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 20px;
+      padding: 10px;
+      display: block;
+    }
+    nav ul li a:hover {
+      color: #b97a56;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      color: #333;
+      background-color: #fffaf5;
+    }
+    
+/* --- MEGA MENU DỌC --- */
+.mega-menu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 20px 30px;
+  width: auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+   background: #fffaf5;
+}
+.has-submenu:hover .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.menu-column h4 {
+  font-size: 18px;
+  color: #7b4f2b;
+  margin-bottom: 8px;
+  border-bottom: 2px solid #e2c9aa;
+  padding-bottom: 4px;
+  text-transform: uppercase;
+}
+.menu-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.menu-column ul li {
+  margin: 6px 0;
+}
+.menu-column ul li a {
+  text-decoration: none;
+  color: #444;
+  font-size: 15px;
+  transition: color 0.3s;
+}
+.menu-column ul li a:hover {
+  color: #c28c4d;
+}
+    /* --- DANH MỤC SẢN PHẨM --- */
+    .section {
+      margin: 50px auto;
+      max-width: 1200px;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .tenTS {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    /* Bỏ trượt - chuyển sang lưới */
+    .sanpham-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      justify-items: center;
+    }
+
+    .sanpham {
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      background: #fff;
+      width: 220px;
+      transition: transform 0.3s;
+    }
+
+    .sanpham:hover {
+      transform: translateY(-5px);
+    }
+
+    .sanpham img {
+      width: 150px;
+      height: 150px;
+      border-radius: 10px;
+      border: #333 solid 1px;
+      transition: transform 0.3s;
+    }
+
+    .sanpham img:hover {
+      transform: scale(1.05);
+    }
+
+    .sanpham .ten {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .sanpham .gia {
+      color: #ff0000;
+      margin-top: 5px;
+    }
+    .sanpham .mua-ngay {
+      margin-top: 10px;
+      padding: 5px 10px;
+      border: none;
+      background: #b97a56;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .sanpham .mua-ngay:hover {
+      background: #8b5738;
+    }
+
+    /* --- GIỎ HÀNG --- */
+    #giohang-popup {
+      display:none;
+      position:fixed;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.3);
+      z-index:1000;
+    }
+    #giohang-popup ul {
+      list-style:none;
+      padding:0;
+    }
+    #giohang-popup button {
+      margin-top:10px;
+      padding:5px 10px;
+      cursor:pointer;
+      border:none;
+      border-radius:5px;
+    }
+    #giohang-count {
+      position:absolute;
+      top:-5px;
+      right:-5px;
+      background:red;
+      color:white;
+      border-radius:50%;
+      padding:2px 6px;
+      font-size:12px;
+    }
+
+    /* --- QUẢNG CÁO --- */
+    .quangcao {
+      text-align: center;
+      margin-top: 20px;
+      border-radius: 20px;
+    }
+    .quangcao img {
+      width: 1000px;
+      height: 300px;
+      border-radius: 20px;
+    }
+    .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+.footer-column h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-column ul li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.footer-column ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-column ul li a:hover {
+    color: #c59d5f;
+}
+.footer-column p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+.footer-logo {
+    width: 180px;
+    height: auto;
+    margin-bottom: 15px;
+}
+.footer-bottom {
+    border-top: 1px solid #555;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #bbb;
+}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="header-left">
+    <p>
+      <img src="phone.png" alt="" width="20" height="20">02899954223 |
+      <img src="location-pin.png" alt="" width="20" height="20">Cửa hàng
+    </p>
+  </div>
+  <div style="text-align: center;">
+    <img src="logo 200.svg" alt="" width="400" height="100">
+  </div>
+  <div class="header-right">
+    <div class="search-box">
+      <input type="text" placeholder="Search...">
+      <img src="search.png" alt="">
+    </div>
+    <a href="Đăng nhập.html"><img src="user.png" alt="" width="20" height="20"></a>
+    <div style="position:relative; display:inline-block;">
+      <img src="shopping-bag .png" alt="" width="30" height="30" id="giohang-icon" style="cursor:pointer;">
+      <span id="giohang-count">0</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#">Trang chủ</a></li>
+    <li><a href="#">Giới thiệu</a></li>
+
+    <li class="has-submenu">
+      <a href="#">Sản phẩm</a>
+      <div class="mega-menu">
+        <div class="menu-column">
+          <h4>Trang sức vàng</h4>
+          <ul>
+            <li><a href="#">Nhẫn vàng</a></li>
+            <li><a href="#">Dây chuyền vàng</a></li>
+            <li><a href="#">Lắc tay vàng</a></li>
+            <li><a href="#">Bông tai vàng</a></li>
+          </ul>
+        </div>
+        <div class="menu-column">
+          <h4>Trang sức bạc</h4>
+          <ul>
+            <li><a href="#">Nhẫn bạc</a></li>
+            <li><a href="#">Dây chuyền bạc</a></li>
+            <li><a href="#">Lắc chân bạc</a></li>
+            <li><a href="#">Bông tai bạc</a></li>
+          </ul>
+        </div>
+        <div class="menu-column">
+          <h4>Trang sức kim cương</h4>
+          <ul>
+            <li><a href="#">Nhẫn kim cương</a></li>
+            <li><a href="#">Dây chuyền kim cương</a></li>
+            <li><a href="#">Lắc tay kim cương</a></li>
+            <li><a href="#">Bông tai kim cương</a></li>
+          </ul>
+        </div>
+      </div>
+    </li>
+
+    <li><a href="#">Liên hệ</a></li>
+  </ul>
+</nav>
+
+<div class="quangcao">
+  <img src="image.png" alt="" width="1000" height="300">
+</div>
+
+<section class="section">
+  <div class="tenTS">Trang sức vàng</div>
+  <div class="sanpham-wrapper">
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn vàng 18k</div><div class="gia">3,200,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Bông tai vàng</div><div class="gia">2,500,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Dây chuyền vàng</div><div class="gia">4,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Lắc tay vàng</div><div class="gia">3,800,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn vàng 24k</div><div class="gia">5,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Bông tai vàng</div><div class="gia">2,500,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Dây chuyền vàng</div><div class="gia">4,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Lắc tay vàng</div><div class="gia">3,800,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+ 
+  </div>
+</section>
+
+<section class="section">
+  <div class="sanpham-wrapper">
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn bạc</div><div class="gia">1,200,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Bông tai bạc</div><div class="gia">950,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Dây chuyền bạc</div><div class="gia">1,800,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Lắc tay bạc</div><div class="gia">1,650,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn bạc đặc biệt</div><div class="gia">2,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Bông tai vàng</div><div class="gia">2,500,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Dây chuyền vàng</div><div class="gia">4,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Lắc tay vàng</div><div class="gia">3,800,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    
+</section>
+
+<section class="section">
+  <div class="sanpham-wrapper">
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn kim cương</div><div class="gia">12,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Bông tai kim cương</div><div class="gia">15,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Dây chuyền kim cương</div><div class="gia">20,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Lắc tay kim cương</div><div class="gia">18,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn kim cương VIP</div><div class="gia">25,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Bông tai vàng</div><div class="gia">2,500,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Dây chuyền vàng</div><div class="gia">4,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Lắc tay vàng</div><div class="gia">3,800,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+
+  </div>
+</section>
+
+<!-- Giỏ hàng popup -->
+<div id="giohang-popup">
+  <h2>Giỏ hàng</h2>
+  <ul id="giohang-items"></ul>
+  <button id="dat-hang">Đặt hàng</button>
+  <button id="dong-giohang">Đóng</button>
+</div>
+
+<script>
+const cart = [];
+const cartCount = document.getElementById('giohang-count');
+const cartIcon = document.getElementById('giohang-icon');
+const cartPopup = document.getElementById('giohang-popup');
+const cartItems = document.getElementById('giohang-items');
+const datHangBtn = document.getElementById('dat-hang');
+const dongBtn = document.getElementById('dong-giohang');
+
+// Thêm sản phẩm vào giỏ
+document.querySelectorAll('.mua-ngay').forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    const sp = e.target.closest('.sanpham');
+    const ten = sp.querySelector('.ten').innerText;
+    const gia = sp.querySelector('.gia').innerText;
+    cart.push({ten, gia});
+    cartCount.innerText = cart.length;
+    alert(`${ten} đã được thêm vào giỏ hàng!`);
+  });
+});
+
+// Hiển thị giỏ hàng khi click icon
+cartIcon.addEventListener('click', () => {
+  cartItems.innerHTML = '';
+  cart.forEach((item) => {
+    const li = document.createElement('li');
+    li.innerText = `${item.ten} - ${item.gia}`;
+    cartItems.appendChild(li);
+  });
+  cartPopup.style.display = 'block';
+});
+
+// Đặt hàng
+datHangBtn.addEventListener('click', () => {
+  alert('Đặt hàng thành công!');
+  cart.length = 0;
+  cartCount.innerText = 0;
+  cartPopup.style.display = 'none';
+});
+
+// Đóng giỏ hàng
+dongBtn.addEventListener('click', () => {
+  cartPopup.style.display = 'none';
+});
+</script>
+</body>
+</html>

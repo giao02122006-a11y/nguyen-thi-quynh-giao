@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trang Sức Cao Cấp</title>
+<style>
+/* --- HEADER --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  position: relative;
+}
+header div.header-right input:focus {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-color: grey;
+}
+header div.header-right input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.header-left img, .header-right img {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.search-box {
+  position: relative;
+  display: inline-block;
+}
+.search-box input {
+  padding: 8px 35px 8px 10px;
+  font-size: 14px;
+}
+.search-box img {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* --- NAV --- */
+nav {
+  box-shadow: 0 6px 6px -4px rgba(0, 0, 0, 0.4);
+  margin-top: 10px;
+  position: relative;
+  z-index: 999;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  border-bottom: 2px solid #ccc;
+  font-family: Dosis, sans-serif;
+}
+nav ul li {
+  position: relative;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 20px;
+  padding: 10px;
+  display: block;
+}
+nav ul li a:hover {
+  color: #b97a56;
+}
+
+/* --- MEGA MENU DỌC --- */
+.mega-menu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: #fffaf5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 20px 30px;
+  width: auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+.has-submenu:hover .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.menu-column h4 {
+  font-size: 18px;
+  color: #7b4f2b;
+  margin-bottom: 8px;
+  border-bottom: 2px solid #e2c9aa;
+  padding-bottom: 4px;
+  text-transform: uppercase;
+}
+.menu-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.menu-column ul li {
+  margin: 6px 0;
+}
+.menu-column ul li a {
+  text-decoration: none;
+  color: #444;
+  font-size: 15px;
+  transition: color 0.3s;
+}
+.menu-column ul li a:hover {
+  color: #c28c4d;
+}
+
+/* --- QUẢNG CÁO --- */
+.quangcao {
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+.quangcao img {
+  border-radius: 20px;
+}
+</style>
+</head>
+<body bgcolor="#fffaf5">
+
+<header>
+  <div class="header-left">
+    <p>
+      <img src="phone.png" alt="" width="20" height="20">02899954223 |
+      <img src="location-pin.png" alt="" width="20" height="20">Cửa hàng
+    </p>
+  </div>
+  <div style="text-align: center;">
+    <img src="logo 200.svg" alt="" width="400" height="100">
+  </div>
+  <div class="header-right">
+    <div class="search-box">
+      <input type="text" placeholder="Search...">
+      <img src="search.png" alt="">
+    </div>
+    <a href="Đăng nhập.html"><img src="user.png" alt="" width="20" height="20"></a>
+    <div style="position:relative; display:inline-block;">
+      <img src="shopping-bag .png" alt="" width="30" height="30" id="giohang-icon" style="cursor:pointer;">
+    </div>
+  </div>
+</header>
+
+<!-- 🌟 MENU CHÍNH -->
+<nav>
+  <ul>
+    <li><a href="Trang chủ.html">Trang chủ</a></li>
+    <li><a href="#">Giới thiệu</a></li>
+
+    <li class="has-submenu">
+      <a href="#">Sản phẩm</a>
+      <div class="mega-menu">
+        <div class="menu-column">
+          <h4>Trang sức vàng</h4>
+          <ul>
+            <li><a href="#">Nhẫn vàng</a></li>
+            <li><a href="#">Dây chuyền vàng</a></li>
+            <li><a href="#">Lắc tay vàng</a></li>
+            <li><a href="#">Bông tai vàng</a></li>
+          </ul>
+        </div>
+        <div class="menu-column">
+          <h4>Trang sức bạc</h4>
+          <ul>
+            <li><a href="#">Nhẫn bạc</a></li>
+            <li><a href="#">Dây chuyền bạc</a></li>
+            <li><a href="#">Lắc chân bạc</a></li>
+            <li><a href="#">Bông tai bạc</a></li>
+          </ul>
+        </div>
+        <div class="menu-column">
+          <h4>Trang sức kim cương</h4>
+          <ul>
+            <li><a href="#">Nhẫn kim cương</a></li>
+            <li><a href="#">Dây chuyền kim cương</a></li>
+            <li><a href="#">Lắc tay kim cương</a></li>
+            <li><a href="#">Bông tai kim cương</a></li>
+          </ul>
+        </div>
+      </div>
+    </li>
+
+    <li><a href="#">Liên hệ</a></li>
+  </ul>
+</nav>
+
+<div class="quangcao">
+  <img src="image.png" alt="" width="1000" height="300">
+</div>
+
+        <h1 style="text-align: center;"> GIỚI THIỆU CÔNG TY TRANG SỨC JEWELRY</h1>
+        <p><b>Công ty Trang sức JEWELRY</b> là thương hiệu trang sức cao cấp được thành lập với 
+             sứ mệnh tôn vinh vẻ đẹp và giá trị của người phụ nữ hiện đại. Với thông điệp 
+             <i>“Your jewelry will tell the world who you are”</i>, JEWELRY không chỉ mang đến 
+             những món trang sức lấp lánh mà còn truyền tải tinh thần tự tin, bản lĩnh và phong
+              cách riêng của từng khách hàng.</p>
+        <p>Từ những thiết kế tinh xảo đến khâu chế tác thủ công tỉ mỉ, mỗi sản phẩm của JEWELRY
+             đều là một tác phẩm nghệ thuật, kết hợp hoàn hảo giữa <b>thẩm mỹ hiện đại</b> và <b>kỹ thuật
+              chế tác truyền thống.</b></p>
+        <p>Chúng tôi không chỉ tạo nên trang sức —<b> chúng tôi tạo nên cảm xúc, đẳng cấp và câu chuyện cá nhân.</b></p>
+
+        <ul>
+            <li>Mang đến những sản phẩm trang sức đẳng cấp, giúp khách hàng tỏa sáng và tự tin trong mọi khoảnh khắc.</li>
+            <li>Góp phần nâng tầm thương hiệu trang sức Việt Nam trên thị trường quốc tế.</li>
+            <li>Lan tỏa giá trị của vẻ đẹp bền vững và chân thật.</li>
+        </ul>
+    
+        <h3 style="color: blue;">GIÁ TRỊ CỐT LÕI</h3>
+         <ol>
+            <li><b>Tinh tế</b> - Mỗi chi tiết đều được chăm chút kỹ lưỡng, phản ánh sự hoàn hảo trong nghệ thuật chế tác.</li>
+            <li><b>Sáng tạo</b> - Không ngừng đổi mới để tạo nên những thiết kế độc đáo, khác biệt và đầy cảm hứng.</li>
+            <li><b>Chân thành</b> - Đặt uy tín và trải nghiệm khách hàng lên hàng đầu.</li>
+            <li><b>Đẳng cấp</b> - Mỗi sản phẩm là biểu tượng của phong cách và vị thế.</li>
+            <li><b>Bền vững</b> - Hướng đến phát triển xanh, sử dụng nguyên liệu có nguồn gốc rõ ràng và thân thiện với môi trường.</li>
+           
+         </ol>
+        <h3 style="color: blue;">NGUYÊN TẮC HOẠT ĐỘNG</h3>
+        <ul>
+            <li>Cam kết chất lượng trong từng sản phẩm, từ thiết kế đến chế tác.</li>
+            <li>Đặt khách hàng làm trung tâm - mỗi món trang sức đều mang câu chuyện và phong cách riêng.</li>
+            <li>Sử dụng nguyên liệu cao cấp, an toàn và thân thiện với làn da.</li>
+            <li>Không ngừng đổi mới, kết hợp giữa nghệ thuật và công nghệ hiện đại.</li>
+            <li>Xây dựng thương hiệu uy tín, đề cao giá trị chân thật và bền vững.</li>
+            
+        </ul>
+        
+        <h3 style="color: blue;">ĐỊNH HƯỚNG KINH DOANH</h3>
+        <ol>
+            <li><b>Thiết kế và chế tác trang sức cao cấp:</b> JEWELRY mang đến những bộ sưu tập trang sức độc đáo với phong cách hiện đại, tinh tế và phù hợp xu hướng thời trang quốc tế.</li>
+            <li><b>Phân phối và bán lẻ:</b> Cung cấp sản phẩm tại hệ thống cửa hàng chính hãng và các nền tảng thương mại điện tử, mang đến trải nghiệm mua sắm thuận tiện cho mọi khách hàng.</li>
+            <li><b>Dịch vụ đặt hàng và thiết kế riêng:</b> Cho phép khách hàng tùy chỉnh trang sức theo sở thích cá nhân - từ nhẫn, vòng tay, dây chuyền đến hoa tai - thể hiện phong cách cá nhân, cảm xúc hoặc kỷ niệm đáng nhớ.</li>
+            <li><b>Bảo hành và chăm sóc khách hàng:</b> Cung cấp chính sách bảo hành trọn đời cùng dịch vụ làm mới, làm sạch trang sức miễn phí định kỳ.</li>
+            <li><b>Định hướng phát triển bền vững:</b> JEWELRY hướng tới việc sử dụng nguyên liệu có nguồn gốc rõ ràng, thân thiện với môi trường và hỗ trợ cộng đồng thợ kim hoàn Việt Nam.</li>
+            <li><b>Chiến lược phát triển quốc tế:</b> Hướng đến mở rộng thị trường sang khu vực Đông Nam Á và các quốc gia châu Á, mang thương hiệu JEWELRY vươn tầm quốc tế.</li>
+        </ol>
+        
+        <h4 style="color: blue;">THÔNG TIN LIÊN HỆ</h4>
+        <ul><b>CÔNG TY TRANG SỨC JEWELRY</b>
+            <li>📍 Địa chỉ: 123 Đường Ánh Kim, Quận Trung Tâm, TP. Hồ Chí Minh</li>
+            <li>☎️ Hotline: 028 9995 4223</li>
+            <li>🌐 Website:<a href="#"> www.jewelry.vn </a></li>
+            <li>✉️ Email:<a href="#"> support@jewelry.vn</a></li>
+        </ul>
+        
+</body>
+</html>
+

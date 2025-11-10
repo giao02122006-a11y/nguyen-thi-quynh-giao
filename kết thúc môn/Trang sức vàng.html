@@ -254,54 +254,75 @@
       border-radius: 20px;
     }
     .footer {
-    background-color: #333;
-    color: #fff;
-    padding: 40px 20px;
+    background-color: #fff;
+    padding: 40px 80px;
+    border-top: 1px solid #ddd;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
+
 .footer-column {
     flex: 1;
-    min-width: 200px;
-    margin-bottom: 20px;
+    min-width: 220px;
+    margin-bottom: 50px;
 }
+
 .footer-column h4 {
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: bold;
     margin-bottom: 15px;
-    text-transform: uppercase;
 }
+
 .footer-column ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
+
 .footer-column ul li {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-size: 14px;
 }
+
 .footer-column ul li a {
-    color: #fff;
     text-decoration: none;
-    transition: color 0.3s;
+    color: #333;
 }
+
 .footer-column ul li a:hover {
     color: #c59d5f;
 }
-.footer-column p {
-    font-size: 14px;
-    line-height: 1.6;
-}
+
 .footer-logo {
-    width: 180px;
+    width: 200px;
     height: auto;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
+
 .footer-bottom {
-    border-top: 1px solid #555;
-    padding: 15px 20px;
+    border-top: 1px solid #ddd;
+    padding: 15px 80px;
     text-align: center;
     font-size: 13px;
-    color: #bbb;
+    color: #777;
+}
+
+/* Mạng xã hội */
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Thanh toán */
+.payment-icons img {
+    width: 45px;
+    margin-right: 5px;
 }
   </style>
 </head>
@@ -332,8 +353,8 @@
 
 <nav>
   <ul>
-    <li><a href="#">Trang chủ</a></li>
-    <li><a href="#">Giới thiệu</a></li>
+    <li><a href="Trang chủ.html">Trang chủ</a></li>
+    <li><a href="Giới thiệu.html">Giới thiệu</a></li>
 
     <li class="has-submenu">
       <a href="#">Sản phẩm</a>
@@ -379,7 +400,7 @@
 <section class="section">
   <div class="tenTS">Trang sức vàng</div>
   <div class="sanpham-wrapper">
-    <div class="sanpham"><a href="#"><img src="Vòng Đeo Tay JEWELRY Admiration Bracelet.jpg"></a><div class="ten">Vòng Đeo Tay JEWELRY Admiration Bracelet</div><div class="gia">3,200,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+    <div class="sanpham"><a href="sp1.html"><img src="bộ 1.jpeg"></a><div class="ten">Bộ trang sức Vàng 18K Jewelry Lá Ngọc Cành Vàng 00020-00005</div><div class="gia">203.463.000 ₫</div><button class="mua-ngay">Mua ngay</button></div>
     <div class="sanpham"><img src="Vòng Đeo Tay JEWELRY Dazzling Swan Bracele.jpg"><div class="ten">Vòng Đeo Tay JEWELRY Dazzling Swan Bracele</div><div class="gia">2,500,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
     <div class="sanpham"><img src="Vòng Đeo Tay JEWELRY Infinity Heart Bangle.jpg"><div class="ten">Vòng Đeo Tay JEWELRY Infinity Heart Bangle</div><div class="gia">4,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
     <div class="sanpham"><img src="Vòng Đeo Tay Nữ JEWELRY Generation Bangle White.jpg"><div class="ten">Vòng Đeo Tay Nữ JEWELRY Generation Bangle White</div><div class="gia">3,800,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
@@ -425,7 +446,72 @@
   <button id="dat-hang">Đặt hàng</button>
   <button id="dong-giohang">Đóng</button>
 </div>
+<footer class="footer">
 
+    <!-- Cột 1 -->
+    <div class="footer-column">
+        <img src="logo 200.svg" alt="Logo" class="footer-logo">
+        <p>© 2017 Công Ty Cổ Phần Vàng Bạc Đá Quý Phú Nhuận</p>
+        <p>170E Phan Đăng Lưu, Phường Đức Nhuận, TP.Hồ Chí Minh</p>
+        <p>ĐT: 02899954223 - Fax: 028 3995 1702</p>
+        <p>Email: support@jewelry.vn</p>
+        <p>Giấy CN ĐKDN: 0300521758 do Sở Tài Chính TP.HCM cấp ngày 02/01/2004 và thay đổi lần 39 ngày 22/10/2025</p>
+        <p>Tổng đài hỗ trợ (08:00 - 21:00, miễn phí gọi): <br>
+        Gọi mua: 1800545457 (phím 1) <br>
+        Khiếu nại: 1800545457 (phím 2) <br>
+        Bảo hành: 1800545457 (phím 3)</p>
+    </div>
+
+    <!-- Cột 2 -->
+    <div class="footer-column">
+        <h4>VỀ JEWELRY</h4>
+        <ul>
+            <li>Giới thiệu về JEWELRY</li>
+            <li>Câu chuyện thương hiệu</li>
+            <li>Tin tức sự kiện</li>
+            <li>Hệ thống cửa hàng</li>
+            <li>Bảo hành & Dịch vụ</li>
+            <li>Chính sách khuyến mãi</li>
+        </ul>
+    </div>
+
+    <!-- Cột 3 -->
+    <div class="footer-column">
+        <h4>DỊCH VỤ KHÁCH HÀNG</h4>
+        <ul>
+            <li>Chăm sóc khách hàng</li>
+            <li>Hướng dẫn chọn size nhẫn</li>
+            <li>Hướng dẫn chọn trang sức</li>
+            <li>Dịch vụ khắc tên</li>
+            <li>Dịch vụ làm mới trang sức</li>
+            <li>Dịch vụ sửa chữa trang sức</li>
+        </ul>
+    </div>
+
+    <!-- Cột 4 -->
+    <div class="footer-column">
+        <h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
+        <div class="social-icons">
+            <img src="facebook.png" alt="Facebook">
+            <img src="instargram.png" alt="Instagram">
+            <img src="youtube.png" alt="YouTube">
+            <img src="email.png" alt="Email">
+        </div>
+        <h4>PHƯƠNG THỨC THANH TOÁN</h4>
+        <div class="payment-icons">
+            <img src="visa.png" alt="Visa">
+            <img src="1156750_finance_mastercard_payment_icon.png" alt="MasterCard">
+            <img src="7044033_zalo_icon.png" alt="ZaloPay">
+        </div>
+        <h4>CHỨNG NHẬN</h4>
+        <p>Chứng nhận GIA - IGI - HRD</p>
+    </div>
+
+</footer>
+
+<div class="footer-bottom">
+    © 2025 Jewelry.vn - All Rights Reserved.
+</div>
 <script>
 const cart = [];
 const cartCount = document.getElementById('giohang-count');

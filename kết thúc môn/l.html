@@ -54,7 +54,6 @@ header div.header-right input {
 nav {
   box-shadow: 0 6px 6px -4px rgba(0, 0, 0, 0.4);
   margin-top: 10px;
-  background: #fff;
   position: relative;
   z-index: 999;
 }
@@ -185,7 +184,6 @@ nav ul li a:hover {
   height: 150px;
   border-radius: 10px;
   transition: transform 0.3s, box-shadow 0.3s;
-  border-radius: 10px;
   border: #333 solid 1px;
 }
 .sanpham img:hover {
@@ -212,7 +210,18 @@ nav ul li a:hover {
 .sanpham .mua-ngay:hover {
   background: #8b5738;
 }
-
+.xemthem a {
+  display: inline-block;
+  margin-top: 60px;
+  padding: 10px 20px;
+  background: #b97a56;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.xemthem a:hover {
+  background: #8b5738;
+}
 /* --- TIÊU ĐỀ HÀNG --- */
 .tenTS {
   text-align: center;
@@ -260,6 +269,77 @@ nav ul li a:hover {
   padding:2px 6px;
   font-size:12px;
 }
+.footer {
+    background-color: #fff;
+    padding: 40px 80px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 220px;
+    margin-bottom: 50px;
+}
+
+.footer-column h4 {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.footer-column ul li a:hover {
+    color: #c59d5f;
+}
+
+.footer-logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #ddd;
+    padding: 15px 80px;
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+}
+
+/* Mạng xã hội */
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Thanh toán */
+.payment-icons img {
+    width: 45px;
+    margin-right: 5px;
+}
 </style>
 </head>
 <body bgcolor="#fffaf5">
@@ -291,8 +371,7 @@ nav ul li a:hover {
 <nav>
   <ul>
     <li><a href="#">Trang chủ</a></li>
-    <li><a href="#">Giới thiệu</a></li>
-
+    <li><a href="Giới thiệu.html">Giới thiệu</a></li>
     <li class="has-submenu">
       <a href="#">Sản phẩm</a>
       <div class="mega-menu">
@@ -325,7 +404,6 @@ nav ul li a:hover {
         </div>
       </div>
     </li>
-
     <li><a href="#">Liên hệ</a></li>
   </ul>
 </nav>
@@ -334,9 +412,7 @@ nav ul li a:hover {
   <img src="image.png" alt="" width="1000" height="300">
 </div>
 
-<!-- GIỮ NGUYÊN PHẦN SLIDE & SCRIPT CỦA BẠN -->
-<!-- (copy nguyên phần cũ của bạn từ đây trở xuống, không cần sửa) -->
-<!-- HÀNG 1: TRANG SỨC VÀNG -->
+<!-- === DANH MỤC SẢN PHẨM (giữ nguyên) === -->
 <section class="section">
   <div class="tenTS">Trang sức vàng</div>
   <div class="slie slie-vang">
@@ -347,12 +423,12 @@ nav ul li a:hover {
       <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Dây chuyền vàng</div><div class="gia">4,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
       <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Lắc tay vàng</div><div class="gia">3,800,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
       <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn vàng 24k</div><div class="gia">5,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="xemthem"><a href="">XEM THÊM</a></div>
     </div>
     <button class="phai phai-vang">&#10095;</button>
   </div>
 </section>
 
-<!-- HÀNG 2: TRANG SỨC BẠC -->
 <section class="section">
   <div class="tenTS">Trang sức bạc</div>
   <div class="slie slie-bac">
@@ -363,12 +439,12 @@ nav ul li a:hover {
       <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Dây chuyền bạc</div><div class="gia">1,800,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
       <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Lắc tay bạc</div><div class="gia">1,650,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
       <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn bạc đặc biệt</div><div class="gia">2,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="xemthem"><a href="">XEM THÊM</a></div>
     </div>
     <button class="phai phai-bac">&#10095;</button>
   </div>
 </section>
 
-<!-- HÀNG 3: TRANG SỨC KIM CƯƠNG -->
 <section class="section">
   <div class="tenTS">Trang sức kim cương</div>
   <div class="slie slie-kc">
@@ -379,12 +455,79 @@ nav ul li a:hover {
       <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Dây chuyền kim cương</div><div class="gia">20,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
       <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Lắc tay kim cương</div><div class="gia">18,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
       <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn kim cương VIP</div><div class="gia">25,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="xemthem"><a href="">XEM THÊM</a></div>
     </div>
     <button class="phai phai-kc">&#10095;</button>
   </div>
+  <footer class="footer">
+
+    <!-- Cột 1 -->
+    <div class="footer-column">
+        <img src="logo 200.svg" alt="Logo" class="footer-logo">
+        <p>© 2017 Công Ty Cổ Phần Vàng Bạc Đá Quý Phú Nhuận</p>
+        <p>170E Phan Đăng Lưu, Phường Đức Nhuận, TP.Hồ Chí Minh</p>
+        <p>ĐT: 02899954223 - Fax: 028 3995 1702</p>
+        <p>Email: support@jewelry.vn</p>
+        <p>Giấy CN ĐKDN: 0300521758 do Sở Tài Chính TP.HCM cấp ngày 02/01/2004 và thay đổi lần 39 ngày 22/10/2025</p>
+        <p>Tổng đài hỗ trợ (08:00 - 21:00, miễn phí gọi): <br>
+        Gọi mua: 1800545457 (phím 1) <br>
+        Khiếu nại: 1800545457 (phím 2) <br>
+        Bảo hành: 1800545457 (phím 3)</p>
+    </div>
+
+    <!-- Cột 2 -->
+    <div class="footer-column">
+        <h4>VỀ JEWELRY</h4>
+        <ul>
+            <li>Giới thiệu về JEWELRY</li>
+            <li>Câu chuyện thương hiệu</li>
+            <li>Tin tức sự kiện</li>
+            <li>Hệ thống cửa hàng</li>
+            <li>Bảo hành & Dịch vụ</li>
+            <li>Chính sách khuyến mãi</li>
+        </ul>
+    </div>
+
+    <!-- Cột 3 -->
+    <div class="footer-column">
+        <h4>DỊCH VỤ KHÁCH HÀNG</h4>
+        <ul>
+            <li>Chăm sóc khách hàng</li>
+            <li>Hướng dẫn chọn size nhẫn</li>
+            <li>Hướng dẫn chọn trang sức</li>
+            <li>Dịch vụ khắc tên</li>
+            <li>Dịch vụ làm mới trang sức</li>
+            <li>Dịch vụ sửa chữa trang sức</li>
+        </ul>
+    </div>
+
+    <!-- Cột 4 -->
+    <div class="footer-column">
+        <h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
+        <div class="social-icons">
+            <img src="facebook.png" alt="Facebook">
+            <img src="instargram.png" alt="Instagram">
+            <img src="youtube.png" alt="YouTube">
+            <img src="email.png" alt="Email">
+        </div>
+        <h4>PHƯƠNG THỨC THANH TOÁN</h4>
+        <div class="payment-icons">
+            <img src="visa.png" alt="Visa">
+            <img src="1156750_finance_mastercard_payment_icon.png" alt="MasterCard">
+            <img src="7044033_zalo_icon.png" alt="ZaloPay">
+        </div>
+        <h4>CHỨNG NHẬN</h4>
+        <p>Chứng nhận GIA - IGI - HRD</p>
+    </div>
+
+</footer>
+
+<div class="footer-bottom">
+    © 2025 Jewelry.vn - All Rights Reserved.
+</div>
 </section>
 
-<!-- Giỏ hàng popup -->
+<!-- GIỎ HÀNG -->
 <div id="giohang-popup">
   <h2>Giỏ hàng</h2>
   <ul id="giohang-items"></ul>
@@ -392,21 +535,24 @@ nav ul li a:hover {
   <button id="dong-giohang">Đóng</button>
 </div>
 
+<!-- ✅ JS SLIDE ĐÃ SỬA HOÀN CHỈNH -->
 <script>
-// --- Slide function ---
 window.addEventListener("load", function() {
 
-  function initSlide(wrapperSelector, leftBtnSelector, rightBtnSelector, visibleProducts = 4) {
+  // --- SLIDE CHẠY ĐƯỢC HẾT ---
+  function initSlide(wrapperSelector, leftBtnSelector, rightBtnSelector) {
     const wrapper = document.querySelector(wrapperSelector);
     const btnLeft = document.querySelector(leftBtnSelector);
     const btnRight = document.querySelector(rightBtnSelector);
     const slides = wrapper.querySelectorAll('.sanpham');
     if (slides.length === 0) return;
 
-    const slideWidth = slides[0].getBoundingClientRect().width + 20; // tính chính xác hơn
+    const slideWidth = slides[0].getBoundingClientRect().width + 20;
+    const containerWidth = wrapper.parentElement.offsetWidth;
+    const visibleProducts = Math.floor(containerWidth / slideWidth);
+
     let currentSlide = 0;
 
-    // Nút sang phải
     btnRight.addEventListener('click', () => {
       if (currentSlide < slides.length - visibleProducts) {
         currentSlide++;
@@ -414,7 +560,6 @@ window.addEventListener("load", function() {
       }
     });
 
-    // Nút sang trái
     btnLeft.addEventListener('click', () => {
       if (currentSlide > 0) {
         currentSlide--;
@@ -423,55 +568,51 @@ window.addEventListener("load", function() {
     });
   }
 
-  // Khởi tạo cho 3 hàng
+  // Khởi tạo 3 slide
   initSlide('.slie-wrapper-vang', '.trai-vang', '.phai-vang');
   initSlide('.slie-wrapper-bac', '.trai-bac', '.phai-bac');
   initSlide('.slie-wrapper-kc', '.trai-kc', '.phai-kc');
 
-});
-// --- Giỏ hàng ---
-const cart = [];
-const cartCount = document.getElementById('giohang-count');
-const cartIcon = document.getElementById('giohang-icon');
-const cartPopup = document.getElementById('giohang-popup');
-const cartItems = document.getElementById('giohang-items');
-const datHangBtn = document.getElementById('dat-hang');
-const dongBtn = document.getElementById('dong-giohang');
+  // --- GIỎ HÀNG ---
+  const cart = [];
+  const cartCount = document.getElementById('giohang-count');
+  const cartIcon = document.getElementById('giohang-icon');
+  const cartPopup = document.getElementById('giohang-popup');
+  const cartItems = document.getElementById('giohang-items');
+  const datHangBtn = document.getElementById('dat-hang');
+  const dongBtn = document.getElementById('dong-giohang');
 
-// Thêm sản phẩm vào giỏ
-document.querySelectorAll('.mua-ngay').forEach((btn) => {
-  btn.addEventListener('click', (e) => {
-    const sp = e.target.closest('.sanpham');
-    const ten = sp.querySelector('.ten').innerText;
-    const gia = sp.querySelector('.gia').innerText;
-    cart.push({ten, gia});
-    cartCount.innerText = cart.length;
-    alert(`${ten} đã được thêm vào giỏ hàng!`);
+  document.querySelectorAll('.mua-ngay').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const sp = e.target.closest('.sanpham');
+      const ten = sp.querySelector('.ten').innerText;
+      const gia = sp.querySelector('.gia').innerText;
+      cart.push({ten, gia});
+      cartCount.innerText = cart.length;
+      alert(`${ten} đã được thêm vào giỏ hàng!`);
+    });
   });
-});
 
-// Hiển thị giỏ hàng khi click icon
-cartIcon.addEventListener('click', () => {
-  cartItems.innerHTML = '';
-  cart.forEach((item, index) => {
-    const li = document.createElement('li');
-    li.innerText = `${item.ten} - ${item.gia}`;
-    cartItems.appendChild(li);
+  cartIcon.addEventListener('click', () => {
+    cartItems.innerHTML = '';
+    cart.forEach(item => {
+      const li = document.createElement('li');
+      li.innerText = `${item.ten} - ${item.gia}`;
+      cartItems.appendChild(li);
+    });
+    cartPopup.style.display = 'block';
   });
-  cartPopup.style.display = 'block';
-});
 
-// Đặt hàng
-datHangBtn.addEventListener('click', () => {
-  alert('Đặt hàng thành công!');
-  cart.length = 0;
-  cartCount.innerText = 0;
-  cartPopup.style.display = 'none';
-});
+  datHangBtn.addEventListener('click', () => {
+    alert('Đặt hàng thành công!');
+    cart.length = 0;
+    cartCount.innerText = 0;
+    cartPopup.style.display = 'none';
+  });
 
-// Đóng giỏ hàng
-dongBtn.addEventListener('click', () => {
-  cartPopup.style.display = 'none';
+  dongBtn.addEventListener('click', () => {
+    cartPopup.style.display = 'none';
+  });
 });
 </script>
 

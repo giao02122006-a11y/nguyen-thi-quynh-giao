@@ -130,13 +130,6 @@ nav ul li a:hover {
   color: #c28c4d;
 }
 
-/* --- QUẢNG CÁO --- */
-.quangcao {
-  text-align: center;
-  margin-top: 20px;
-  border-radius: 20px;
-}
-
 /* --- SLIDE --- */
 .slie {
   position: relative;
@@ -168,7 +161,35 @@ nav ul li a:hover {
 }
 .slie .trai { left: 10px; }
 .slie .phai { right: 10px; }
+ * { box-sizing: border-box; }
 
+  .slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    cursor: pointer;
+    width: 800px;
+  }
+.slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px; /* 👈 nhỏ hơn 100vh */
+  margin-top: 15px; /* thêm khoảng cách tùy thích */
+}
+  .slides {
+    width: 800px; /* Tổng chiều rộng = số ảnh * chiều rộng mỗi ảnh */
+    height: 300;
+    display: flex;
+    transition: transform 0.7s ease-in-out;
+  }
+
+  .slides img {
+    display: block;
+    width: 800px; /* Đặt chiều rộng cố định cho ảnh */
+    height: 300; /* Giữ đúng tỉ lệ gốc */
+  }
 .sanpham {
   min-width: 220px;
   margin: 0 10px;
@@ -407,8 +428,15 @@ nav ul li a:hover {
   </ul>
 </nav>
 
-<div class="quangcao">
-  <img src="image.png" alt="" width="1000" height="300">
+<div class="slider-container">
+  <div class="slider" id="slider">
+  <div class="slides" id="slides">
+    <img src="image.png" alt="Ảnh 1" width="800" height="300">
+    <img src="anh 1.jpg" alt="Ảnh 2"  width="800" height="300">
+    <img src="ANH 2.jpg" alt="Ảnh 3"  width="800" height="300">
+    <img src="ANH 3.jpg" alt="Ảnh 4"  width="800" height="300">
+  </div>
+</div>
 </div>
 
 <!-- === DANH MỤC SẢN PHẨM (giữ nguyên) === -->
@@ -612,6 +640,29 @@ window.addEventListener("load", function() {
     cartPopup.style.display = 'none';
   });
 });
+const slides = document.getElementById('slides');
+  const slider = document.getElementById('slider');
+  const totalSlides = slides.children.length;
+  let index = 0;
+
+  function nextSlide() {
+    const slideWidth = slides.children[0].clientWidth; // 👈 tự lấy chiều rộng ảnh
+    index = (index + 1) % totalSlides;
+    slides.style.transform = `translateX(-${index * slideWidth}px)`;
+  }
+
+  let autoSlide = setInterval(nextSlide, 3000);
+
+  slider.addEventListener('click', () => {
+    clearInterval(autoSlide);
+    nextSlide();
+    autoSlide = setInterval(nextSlide, 3000);
+  });
+
+  // Cập nhật lại khi ảnh load xong hoặc cửa sổ thay đổi kích thước
+  window.addEventListener('resize', () => {
+    slides.style.transform = `translateX(-${index * slides.children[0].clientWidth}px)`;
+  });
 </script>
 
 </body>

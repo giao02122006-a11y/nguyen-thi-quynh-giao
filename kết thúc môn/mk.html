@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trang Sức Cao Cấp</title>
 <style>
+  body {
+    margin: 0;  
+    font-family: Arial, sans-serif;
+    background-color: #fffaf5;
+  }
 /* --- HEADER --- */
 header {
   display: flex;
@@ -54,9 +59,9 @@ header div.header-right input {
 nav {
   box-shadow: 0 6px 6px -4px rgba(0, 0, 0, 0.4);
   margin-top: 10px;
-  background: #fff;
   position: relative;
   z-index: 999;
+  background-color: white;
 }
 nav ul {
   list-style-type: none;
@@ -130,15 +135,12 @@ nav ul li a:hover {
 .menu-column ul li a:hover {
   color: #c28c4d;
 }
-
-/* --- QUẢNG CÁO --- */
-.quangcao {
-  text-align: center;
-  margin-top: 20px;
-  border-radius: 20px;
+/* --- KHOẢNG CÁCH GIỮA 3 HÀNG --- */
+.section {
+  margin-bottom: 100px;
 }
 
-/* --- SLIDE --- */
+/* --- SLIDE CHUNG --- */
 .slie {
   position: relative;
   width: 100%;
@@ -148,11 +150,9 @@ nav ul li a:hover {
 }
 .slie-wrapper {
   display: flex;
+  align-items: stretch; /* ✅ giữ thẳng hàng các khung */
   transition: transform 0.5s ease;
-  padding: 10px;
-  scroll-behavior: smooth;
-  gap: 5px;
-  width: max-content;
+  gap: 10px;
 }
 .slie .trai, .slie .phai {
   position: absolute;
@@ -169,7 +169,36 @@ nav ul li a:hover {
 }
 .slie .trai { left: 10px; }
 .slie .phai { right: 10px; }
+/* --- SLIDE ẢNH TO --- */
+.slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    cursor: pointer;
+    width: 800px;
+  }
+.slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px; /* 👈 nhỏ hơn 100vh */
+  margin-top: 15px; /* thêm khoảng cách tùy thích */
+}
+  .slides {
+    width: 800px; /* Tổng chiều rộng = số ảnh * chiều rộng mỗi ảnh */
+    height: 300;
+    display: flex;
+    transition: transform 0.7s ease-in-out;
+  }
 
+  .slides img {
+    display: block;
+    width: 800px; /* Đặt chiều rộng cố định cho ảnh */
+    height: 300; /* Giữ đúng tỉ lệ gốc */
+  }
+
+/* --- SẢN PHẨM --- */
 .sanpham {
   min-width: 220px;
   margin: 0 10px;
@@ -180,36 +209,64 @@ nav ul li a:hover {
   padding: 15px;
   background: #fff;
 }
-.sanpham img {
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  border-radius: 10px;
-  border: #333 solid 1px;
-}
-.sanpham img:hover {
-  transform: scale(1.05);
+
+    .sanpham:hover {
+      transform: translateY(-5px);
+    }
+
+    .sanpham img {
+      width: 150px;
+      height: 150px;
+      border-radius: 10px;
+      border: #333 solid 1px;
+      transition: transform 0.3s;
+    }
+
+    .sanpham img:hover {
+      transform: scale(1.05);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+
+    .sanpham .ten {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .sanpham .gia {
+      color: #ff0000;
+      margin-top: 5px;
+    }
+    .sanpham .mua-ngay {
+      margin-top: 10px;
+      padding: 5px 10px;
+      border: none;
+      background: #b97a56;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .sanpham .mua-ngay:hover {
+      background: #8b5738;
+    }
+
+
+/* --- XEM THÊM --- */
+.xemthem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
 }
-.sanpham .ten {
-  font-weight: bold;
-  margin-top: 10px;
-}
-.sanpham .gia {
-  color: #ff0000;
-  margin-top: 5px;
-}
-.sanpham .mua-ngay {
-  margin-top: 10px;
-  padding: 5px 10px;
-  border: none;
+.xemthem a {
+  display: inline-block;
+  margin-top: 120px;
+  padding: 10px 20px;
   background: #b97a56;
   color: white;
-  cursor: pointer;
+  text-decoration: none;
   border-radius: 5px;
 }
-.sanpham .mua-ngay:hover {
+.xemthem a:hover {
   background: #8b5738;
 }
 
@@ -221,10 +278,6 @@ nav ul li a:hover {
   margin: 60px 0 20px 0;
 }
 
-/* --- KHOẢNG CÁCH GIỮA 3 HÀNG --- */
-.section {
-  margin-bottom: 100px;
-}
 
 /* --- GIỎ HÀNG --- */
 #giohang-popup {
@@ -260,9 +313,79 @@ nav ul li a:hover {
   padding:2px 6px;
   font-size:12px;
 }
+.footer {
+    padding: 40px 80px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 220px;
+    margin-bottom: 50px;
+}
+
+.footer-column h4 {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.footer-column ul li a:hover {
+    color: #c59d5f;
+}
+
+.footer-logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #ddd;
+    padding: 15px 80px;
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+}
+
+/* Mạng xã hội */
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Thanh toán */
+.payment-icons img {
+    width: 45px;
+    margin-right: 5px;
+}
 </style>
 </head>
-<body bgcolor="#fffaf5">
+<body>
 
 <header>
   <div class="header-left">
@@ -291,8 +414,7 @@ nav ul li a:hover {
 <nav>
   <ul>
     <li><a href="#">Trang chủ</a></li>
-    <li><a href="#">Giới thiệu</a></li>
-
+    <li><a href="Giới thiệu.html">Giới thiệu</a></li>
     <li class="has-submenu">
       <a href="#">Sản phẩm</a>
       <div class="mega-menu">
@@ -325,88 +447,161 @@ nav ul li a:hover {
         </div>
       </div>
     </li>
-
-    <li><a href="#">Liên hệ</a></li>
+    <li><a href="Liên hệ.html">Liên hệ</a></li>
   </ul>
 </nav>
 
-<div class="quangcao">
-  <img src="image.png" alt="" width="1000" height="300">
+<div class="slider-container">
+  <div class="slider" id="slider">
+  <div class="slides" id="slides">
+    <img src="image.png" alt="Ảnh 1" width="800" height="300">
+    <img src="anh 1.jpg" alt="Ảnh 2"  width="800" height="300">
+    <img src="ANH 2.jpg" alt="Ảnh 3"  width="800" height="300">
+    <img src="ANH 3.jpg" alt="Ảnh 4"  width="800" height="300">
+  </div>
+</div>
 </div>
 
-<!-- GIỮ NGUYÊN PHẦN SLIDE & SCRIPT CỦA BẠN -->
-<!-- (copy nguyên phần cũ của bạn từ đây trở xuống, không cần sửa) -->
-<!-- HÀNG 1: TRANG SỨC VÀNG -->
+<!-- === DANH MỤC SẢN PHẨM (giữ nguyên) === -->
 <section class="section">
   <div class="tenTS">Trang sức vàng</div>
   <div class="slie slie-vang">
     <button class="trai trai-vang">&#10094;</button>
     <div class="slie-wrapper slie-wrapper-vang">
-      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn vàng 18k</div><div class="gia">3,200,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
-      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Bông tai vàng</div><div class="gia">2,500,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
-      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Dây chuyền vàng</div><div class="gia">4,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
-      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Lắc tay vàng</div><div class="gia">3,800,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
-      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn vàng 24k</div><div class="gia">5,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><a href="sp1.html"><img src="bộ 1.jpeg"></a><div class="ten">Bộ trang sức Vàng 18K Jewelry <br>Lá Ngọc Cành Vàng 00020-00005</div><div class="gia">203.463.000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><a href="sp2.html"><img src="lắc tay sao.jpg"></a><div class="ten">Lắc tay Vàng 10K Sweeties <br>0000Y004493</div><div class="gia">7.155.000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><a href="sp3.html"><img src="bông tai hồng ngọc.jpg"></a><div class="ten">Bông tai Vàng 10K Đính đá Ruby <br> Magnétique RBXMY000392</div><div class="gia">11.612.000 ₫</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><a href="sp4.html"><img src="lắc tay vàng.jpg"></a><div class="ten">Lắc tay Vàng 10K Đính đá Ruby <br> Magnétique RBXMY000212</div><div class="gia">16.283.000 ₫</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><a href="#"><img src="Bông tai bạc 10k.jpg"></a><div class="ten">Nhẫn vàng 24k</div><div class="gia">5,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="xemthem"><a href="Trang sức vàng.html">XEM THÊM</a></div>
     </div>
     <button class="phai phai-vang">&#10095;</button>
   </div>
 </section>
 
-<!-- HÀNG 2: TRANG SỨC BẠC -->
 <section class="section">
   <div class="tenTS">Trang sức bạc</div>
   <div class="slie slie-bac">
     <button class="trai trai-bac">&#10094;</button>
     <div class="slie-wrapper slie-wrapper-bac">
-      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn bạc</div><div class="gia">1,200,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
-      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Bông tai bạc</div><div class="gia">950,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
-      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Dây chuyền bạc</div><div class="gia">1,800,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
-      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Lắc tay bạc</div><div class="gia">1,650,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
-      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn bạc đặc biệt</div><div class="gia">2,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><a href="#"><img src="Bông tai bạc 10k.jpg"></a><div class="ten">Nhẫn bạc</div><div class="gia">1,200,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><a href="#"><img src="Bông tai bạc 10k.jpg"></a><div class="ten">Bông tai bạc</div><div class="gia">950,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><a href="#"><img src="Bông tai bạc 10k.jpg"></a><div class="ten">Dây chuyền bạc</div><div class="gia">1,800,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><a href="#"><img src="Bông tai bạc 10k.jpg"></a><div class="ten">Lắc tay bạc</div><div class="gia">1,650,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><a href="#"><img src="Bông tai bạc 10k.jpg"></a><div class="ten">Nhẫn bạc đặc biệt</div><div class="gia">2,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="xemthem"><a href="">XEM THÊM</a></div>
     </div>
     <button class="phai phai-bac">&#10095;</button>
   </div>
 </section>
 
-<!-- HÀNG 3: TRANG SỨC KIM CƯƠNG -->
 <section class="section">
   <div class="tenTS">Trang sức kim cương</div>
   <div class="slie slie-kc">
     <button class="trai trai-kc">&#10094;</button>
     <div class="slie-wrapper slie-wrapper-kc">
-      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn kim cương</div><div class="gia">12,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
-      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Bông tai kim cương</div><div class="gia">15,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
-      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Dây chuyền kim cương</div><div class="gia">20,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
-      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Lắc tay kim cương</div><div class="gia">18,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
-      <div class="sanpham"><img src="Bông tai bạc 10k.jpg"><div class="ten">Nhẫn kim cương VIP</div><div class="gia">25,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><a href="#"><img src="Bông tai bạc 10k.jpg"></a><div class="ten">Nhẫn kim cương</div><div class="gia">12,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><a href="#"><img src="Bông tai bạc 10k.jpg"></a><div class="ten">Bông tai kim cương</div><div class="gia">15,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><a href="#"><img src="Bông tai bạc 10k.jpg"></a><div class="ten">Dây chuyền kim cương</div><div class="gia">20,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><a href="#"><img src="Bông tai bạc 10k.jpg"></a><div class="ten">Lắc tay kim cương</div><div class="gia">18,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="sanpham"><a href="#"><img src="Bông tai bạc 10k.jpg"></a><div class="ten">Nhẫn kim cương VIP</div><div class="gia">25,000,000 đ</div><button class="mua-ngay">Mua ngay</button></div>
+      <div class="xemthem"><a href="">XEM THÊM</a></div>
     </div>
     <button class="phai phai-kc">&#10095;</button>
   </div>
 </section>
 
-<!-- Giỏ hàng popup -->
+<!-- GIỎ HÀNG -->
 <div id="giohang-popup">
   <h2>Giỏ hàng</h2>
   <ul id="giohang-items"></ul>
   <button id="dat-hang">Đặt hàng</button>
   <button id="dong-giohang">Đóng</button>
 </div>
+<footer class="footer">
 
+    <!-- Cột 1 -->
+    <div class="footer-column">
+        <img src="logo 200.svg" alt="Logo" class="footer-logo">
+        <p>© 2017 Công Ty Cổ Phần Vàng Bạc Đá Quý Phú Nhuận</p>
+        <p>170E Phan Đăng Lưu, Phường Đức Nhuận, TP.Hồ Chí Minh</p>
+        <p>ĐT: 02899954223 - Fax: 028 3995 1702</p>
+        <p>Email: support@jewelry.vn</p>
+        <p>Giấy CN ĐKDN: 0300521758 do Sở Tài Chính TP.HCM cấp ngày 02/01/2004 và thay đổi lần 39 ngày 22/10/2025</p>
+        <p>Tổng đài hỗ trợ (08:00 - 21:00, miễn phí gọi): <br>
+        Gọi mua: 1800545457 (phím 1) <br>
+        Khiếu nại: 1800545457 (phím 2) <br>
+        Bảo hành: 1800545457 (phím 3)</p>
+    </div>
+
+    <!-- Cột 2 -->
+    <div class="footer-column">
+        <h4>VỀ JEWELRY</h4>
+        <ul>
+            <li>Giới thiệu về JEWELRY</li>
+            <li>Câu chuyện thương hiệu</li>
+            <li>Tin tức sự kiện</li>
+            <li>Hệ thống cửa hàng</li>
+            <li>Bảo hành & Dịch vụ</li>
+            <li>Chính sách khuyến mãi</li>
+        </ul>
+    </div>
+
+    <!-- Cột 3 -->
+    <div class="footer-column">
+        <h4>DỊCH VỤ KHÁCH HÀNG</h4>
+        <ul>
+            <li>Chăm sóc khách hàng</li>
+            <li>Hướng dẫn chọn size nhẫn</li>
+            <li>Hướng dẫn chọn trang sức</li>
+            <li>Dịch vụ khắc tên</li>
+            <li>Dịch vụ làm mới trang sức</li>
+            <li>Dịch vụ sửa chữa trang sức</li>
+        </ul>
+    </div>
+
+    <!-- Cột 4 -->
+    <div class="footer-column">
+        <h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
+        <div class="social-icons">
+            <img src="facebook.png" alt="Facebook">
+            <img src="instargram.png" alt="Instagram">
+            <img src="youtube.png" alt="YouTube">
+            <img src="email.png" alt="Email">
+        </div>
+        <h4>PHƯƠNG THỨC THANH TOÁN</h4>
+        <div class="payment-icons">
+            <img src="visa.png" alt="Visa">
+            <img src="1156750_finance_mastercard_payment_icon.png" alt="MasterCard">
+            <img src="7044033_zalo_icon.png" alt="ZaloPay">
+        </div>
+        <h4>CHỨNG NHẬN</h4>
+        <p>Chứng nhận GIA - IGI - HRD</p>
+    </div>
+
+</footer>
+
+<div class="footer-bottom">
+    © 2025 Jewelry.vn - All Rights Reserved.
+</div>
+<!-- ✅ JS SLIDE ĐÃ SỬA HOÀN CHỈNH -->
 <script>
-// --- Slide function ---
 window.addEventListener("load", function() {
-
-  function initSlide(wrapperSelector, leftBtnSelector, rightBtnSelector, visibleProducts = 4) {
+  // --- HÀM KHỞI TẠO SLIDE ---
+  function initSlide(wrapperSelector, leftBtnSelector, rightBtnSelector) {
     const wrapper = document.querySelector(wrapperSelector);
     const btnLeft = document.querySelector(leftBtnSelector);
     const btnRight = document.querySelector(rightBtnSelector);
-    const slides = wrapper.querySelectorAll('.sanpham');
+    const slides = wrapper.querySelectorAll('.sanpham, .xemthem'); // ✅ gồm cả XEM THÊM
+
     if (slides.length === 0) return;
 
-    const slideWidth = slides[0].getBoundingClientRect().width + 20; // tính chính xác hơn
+    const slideWidth = slides[0].getBoundingClientRect().width + 20;
+    const containerWidth = wrapper.parentElement.offsetWidth;
+    const visibleProducts = Math.floor(containerWidth / slideWidth);
+
     let currentSlide = 0;
 
-    // Nút sang phải
     btnRight.addEventListener('click', () => {
       if (currentSlide < slides.length - visibleProducts) {
         currentSlide++;
@@ -414,7 +609,6 @@ window.addEventListener("load", function() {
       }
     });
 
-    // Nút sang trái
     btnLeft.addEventListener('click', () => {
       if (currentSlide > 0) {
         currentSlide--;
@@ -423,56 +617,76 @@ window.addEventListener("load", function() {
     });
   }
 
-  // Khởi tạo cho 3 hàng
+  // ✅ Khởi tạo 3 slide
   initSlide('.slie-wrapper-vang', '.trai-vang', '.phai-vang');
   initSlide('.slie-wrapper-bac', '.trai-bac', '.phai-bac');
   initSlide('.slie-wrapper-kc', '.trai-kc', '.phai-kc');
-
 });
-// --- Giỏ hàng ---
-const cart = [];
-const cartCount = document.getElementById('giohang-count');
-const cartIcon = document.getElementById('giohang-icon');
-const cartPopup = document.getElementById('giohang-popup');
-const cartItems = document.getElementById('giohang-items');
-const datHangBtn = document.getElementById('dat-hang');
-const dongBtn = document.getElementById('dong-giohang');
 
-// Thêm sản phẩm vào giỏ
-document.querySelectorAll('.mua-ngay').forEach((btn) => {
-  btn.addEventListener('click', (e) => {
-    const sp = e.target.closest('.sanpham');
-    const ten = sp.querySelector('.ten').innerText;
-    const gia = sp.querySelector('.gia').innerText;
-    cart.push({ten, gia});
-    cartCount.innerText = cart.length;
-    alert(`${ten} đã được thêm vào giỏ hàng!`);
+  // --- GIỎ HÀNG ---
+  const cart = [];
+  const cartCount = document.getElementById('giohang-count');
+  const cartIcon = document.getElementById('giohang-icon');
+  const cartPopup = document.getElementById('giohang-popup');
+  const cartItems = document.getElementById('giohang-items');
+  const datHangBtn = document.getElementById('dat-hang');
+  const dongBtn = document.getElementById('dong-giohang');
+
+  document.querySelectorAll('.mua-ngay').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const sp = e.target.closest('.sanpham');
+      const ten = sp.querySelector('.ten').innerText;
+      const gia = sp.querySelector('.gia').innerText;
+      cart.push({ten, gia});
+      cartCount.innerText = cart.length;
+      alert(`${ten} đã được thêm vào giỏ hàng!`);
+    });
   });
-});
 
-// Hiển thị giỏ hàng khi click icon
-cartIcon.addEventListener('click', () => {
-  cartItems.innerHTML = '';
-  cart.forEach((item, index) => {
-    const li = document.createElement('li');
-    li.innerText = `${item.ten} - ${item.gia}`;
-    cartItems.appendChild(li);
+  cartIcon.addEventListener('click', () => {
+    cartItems.innerHTML = '';
+    cart.forEach(item => {
+      const li = document.createElement('li');
+      li.innerText = `${item.ten} - ${item.gia}`;
+      cartItems.appendChild(li);
+    });
+    cartPopup.style.display = 'block';
   });
-  cartPopup.style.display = 'block';
-});
 
-// Đặt hàng
-datHangBtn.addEventListener('click', () => {
-  alert('Đặt hàng thành công!');
-  cart.length = 0;
-  cartCount.innerText = 0;
-  cartPopup.style.display = 'none';
-});
+  datHangBtn.addEventListener('click', () => {
+    alert('Đặt hàng thành công!');
+    cart.length = 0;
+    cartCount.innerText = 0;
+    cartPopup.style.display = 'none';
+  });
 
-// Đóng giỏ hàng
-dongBtn.addEventListener('click', () => {
-  cartPopup.style.display = 'none';
-});
+  dongBtn.addEventListener('click', () => {
+    cartPopup.style.display = 'none';
+  });
+  // --- SLIDE ẢNH TO ---
+const slides = document.getElementById('slides');
+  const slider = document.getElementById('slider');
+  const totalSlides = slides.children.length;
+  let index = 0;
+
+  function nextSlide() {
+    const slideWidth = slides.children[0].clientWidth; // 👈 tự lấy chiều rộng ảnh
+    index = (index + 1) % totalSlides;
+    slides.style.transform = `translateX(-${index * slideWidth}px)`;
+  }
+
+  let autoSlide = setInterval(nextSlide, 3000);
+
+  slider.addEventListener('click', () => {
+    clearInterval(autoSlide);
+    nextSlide();
+    autoSlide = setInterval(nextSlide, 3000);
+  });
+
+  // Cập nhật lại khi ảnh load xong hoặc cửa sổ thay đổi kích thước
+  window.addEventListener('resize', () => {
+    slides.style.transform = `translateX(-${index * slides.children[0].clientWidth}px)`;
+  });
 </script>
 
 </body>

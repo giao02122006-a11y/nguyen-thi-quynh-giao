@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trang Sức Cao Cấp</title>
 <style>
+  body {
+    margin: 0;  
+    font-family: Arial, sans-serif;
+    background-color: #fffaf5;
+  }
 /* --- HEADER --- */
 header {
   display: flex;
@@ -56,6 +61,7 @@ nav {
   margin-top: 10px;
   position: relative;
   z-index: 999;
+  background-color: white;
 }
 nav ul {
   list-style-type: none;
@@ -129,8 +135,12 @@ nav ul li a:hover {
 .menu-column ul li a:hover {
   color: #c28c4d;
 }
+/* --- KHOẢNG CÁCH GIỮA 3 HÀNG --- */
+.section {
+  margin-bottom: 100px;
+}
 
-/* --- SLIDE --- */
+/* --- SLIDE CHUNG --- */
 .slie {
   position: relative;
   width: 100%;
@@ -140,11 +150,9 @@ nav ul li a:hover {
 }
 .slie-wrapper {
   display: flex;
+  align-items: stretch; /* ✅ giữ thẳng hàng các khung */
   transition: transform 0.5s ease;
-  padding: 10px;
-  scroll-behavior: smooth;
-  gap: 5px;
-  width: max-content;
+  gap: 10px;
 }
 .slie .trai, .slie .phai {
   position: absolute;
@@ -161,9 +169,8 @@ nav ul li a:hover {
 }
 .slie .trai { left: 10px; }
 .slie .phai { right: 10px; }
- * { box-sizing: border-box; }
-
-  .slider {
+/* --- SLIDE ẢNH TO --- */
+.slider {
     position: relative;
     overflow: hidden;
     border-radius: 12px;
@@ -190,6 +197,8 @@ nav ul li a:hover {
     width: 800px; /* Đặt chiều rộng cố định cho ảnh */
     height: 300; /* Giữ đúng tỉ lệ gốc */
   }
+
+/* --- SẢN PHẨM --- */
 .sanpham {
   min-width: 220px;
   margin: 0 10px;
@@ -200,40 +209,57 @@ nav ul li a:hover {
   padding: 15px;
   background: #fff;
 }
-.sanpham img {
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  border: #333 solid 1px;
-}
-.sanpham img:hover {
-  transform: scale(1.05);
+
+    .sanpham:hover {
+      transform: translateY(-5px);
+    }
+
+    .sanpham img {
+      width: 150px;
+      height: 150px;
+      border-radius: 10px;
+      border: #333 solid 1px;
+      transition: transform 0.3s;
+    }
+
+    .sanpham img:hover {
+      transform: scale(1.05);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-}
-.sanpham .ten {
-  font-weight: bold;
-  margin-top: 10px;
-}
-.sanpham .gia {
-  color: #ff0000;
-  margin-top: 5px;
-}
-.sanpham .mua-ngay {
-  margin-top: 10px;
-  padding: 5px 10px;
-  border: none;
-  background: #b97a56;
-  color: white;
-  cursor: pointer;
-  border-radius: 5px;
-}
-.sanpham .mua-ngay:hover {
-  background: #8b5738;
+    }
+    
+
+    .sanpham .ten {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .sanpham .gia {
+      color: #ff0000;
+      margin-top: 5px;
+    }
+    .sanpham .mua-ngay {
+      margin-top: 10px;
+      padding: 5px 10px;
+      border: none;
+      background: #b97a56;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .sanpham .mua-ngay:hover {
+      background: #8b5738;
+    }
+
+
+/* --- XEM THÊM --- */
+.xemthem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
 }
 .xemthem a {
   display: inline-block;
-  margin-top: 60px;
+  margin-top: 120px;
   padding: 10px 20px;
   background: #b97a56;
   color: white;
@@ -243,6 +269,7 @@ nav ul li a:hover {
 .xemthem a:hover {
   background: #8b5738;
 }
+
 /* --- TIÊU ĐỀ HÀNG --- */
 .tenTS {
   text-align: center;
@@ -251,10 +278,6 @@ nav ul li a:hover {
   margin: 60px 0 20px 0;
 }
 
-/* --- KHOẢNG CÁCH GIỮA 3 HÀNG --- */
-.section {
-  margin-bottom: 100px;
-}
 
 /* --- GIỎ HÀNG --- */
 #giohang-popup {
@@ -362,7 +385,7 @@ nav ul li a:hover {
 }
 </style>
 </head>
-<body bgcolor="#fffaf5">
+<body>
 
 <header>
   <div class="header-left">
@@ -564,13 +587,13 @@ nav ul li a:hover {
 <!-- ✅ JS SLIDE ĐÃ SỬA HOÀN CHỈNH -->
 <script>
 window.addEventListener("load", function() {
-
-  // --- SLIDE CHẠY ĐƯỢC HẾT ---
+  // --- HÀM KHỞI TẠO SLIDE ---
   function initSlide(wrapperSelector, leftBtnSelector, rightBtnSelector) {
     const wrapper = document.querySelector(wrapperSelector);
     const btnLeft = document.querySelector(leftBtnSelector);
     const btnRight = document.querySelector(rightBtnSelector);
-    const slides = wrapper.querySelectorAll('.sanpham');
+    const slides = wrapper.querySelectorAll('.sanpham, .xemthem'); // ✅ gồm cả XEM THÊM
+
     if (slides.length === 0) return;
 
     const slideWidth = slides[0].getBoundingClientRect().width + 20;
@@ -594,10 +617,11 @@ window.addEventListener("load", function() {
     });
   }
 
-  // Khởi tạo 3 slide
+  // ✅ Khởi tạo 3 slide
   initSlide('.slie-wrapper-vang', '.trai-vang', '.phai-vang');
   initSlide('.slie-wrapper-bac', '.trai-bac', '.phai-bac');
   initSlide('.slie-wrapper-kc', '.trai-kc', '.phai-kc');
+});
 
   // --- GIỎ HÀNG ---
   const cart = [];
@@ -639,7 +663,7 @@ window.addEventListener("load", function() {
   dongBtn.addEventListener('click', () => {
     cartPopup.style.display = 'none';
   });
-});
+  // --- SLIDE ẢNH TO ---
 const slides = document.getElementById('slides');
   const slider = document.getElementById('slider');
   const totalSlides = slides.children.length;
